@@ -1,2 +1,23 @@
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
+
+body {
+  background-image: url("/background.png");
+  background-repeat: no-repeat;
+}
+
+#rotating-item-wrapper {
+	position: fixed;
+	width: 100vw;
+	height: 347px;
+  top: 0;
+  left: 0;
+}
+.rotating-item {
+	display: none;
+  width: 40vw;
+  max-height: 20vw;
+  object-fit: cover;
+  overflow: hidden;
+	position: absolute;
+}

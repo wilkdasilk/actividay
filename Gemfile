@@ -24,14 +24,16 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
+
+gem 'bootstrap', '~> 4.0.0.alpha6'
+
+gem 'jquery-turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 #devise for user authentication/authorization
 gem 'devise'
-#foundation for css styling
-gem 'foundation-rails'
 #carrierWave for pictures
 gem 'carrierwave', '~> 1.0'
 #zip-codes for converting zip-codes to cities

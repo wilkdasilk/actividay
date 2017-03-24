@@ -8,6 +8,12 @@
           <li><%= link_to "Somewhere", "#" %></li>
           <li><%= link_to "Over there", "#" %></li>
           <li><%= link_to "That place", "#" %></li>
+          <% if current_user %>
+            <li><%= link_to "My Profile", user_path(current_user) %></li>
+            <li><%= link_to "Logout", destroy_user_session_path, method: "delete" %></li>
+          <% else %>
+            <li><%= link_to "Login", new_user_session_path %></li>
+          <% end %>
         </ul>
       </nav>
     </div>

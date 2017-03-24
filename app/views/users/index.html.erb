@@ -1,0 +1,8 @@
+<% @users.each do |user| %>
+  <p> <%= user.name %> </p>
+  <p> <%= user.email %> </p>
+  <p> <%= user.goals %> </p>
+  <p> <%= user.born_on %> </p>
+  <p> <%= user.zip %> </p>
+  <p> User since <%= user.created_at %> </p>
+<% end %>

@@ -1,6 +1,8 @@
 <p> <%= @user.name %> </p>
 <p> <%= @user.email %> </p>
-<p> <%= @user.goals %> </p>
-<p> <%= @user.born_on %> </p>
+<p> Goals: <%= @user.goals %> </p>
+<p> Birthday: <%= @user.born_on.strftime("%B %d") %> </p>
 <p> <%= @user.zip %> </p>
-<p> User since <%= @user.created_at %> </p>
+<p> User since <%= @user.created_at.strftime("%B %d, %Y")%> </p>
+
+<%= link_to "Edit Profile", edit_user_registration_path %>

@@ -23,6 +23,28 @@ body {
   background-color: grey;
 }
 
+.form-div {
+  background: white;
+  padding: 30px;
+}
+
+.field, .actions{
+  margin-bottom: 7px;
+}
+
+
+.btn-cust{
+  background-color: rgba(255,127,80,1);
+  border-color: rgba(255,127,80,.8)
+}
+
+.btn-cust:active, .btn-cust:focus, .btn-cust:active:focus, .btn-cust:hover, .btn-cust:active:hover, .btn-cust:disabled:hover {
+  background-color: rgba(255,127,80,.8);
+  border-color: rgba(255,127,80,.6)
+}
+/* navigation */
+
+
 #login-nav {
   text-align: end;
   padding-top: 10px;

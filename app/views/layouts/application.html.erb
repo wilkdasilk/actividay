@@ -1,13 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+  <header class="navbar">
+    <div class="container">
+      </ul>
+      <nav>
+        <ul class="nav navbar-nav">
+          <li><%= link_to "Somewhere", "#" %></li>
+          <li><%= link_to "Over there", "#" %></li>
+          <li><%= link_to "That place", "#" %></li>
+        </ul>
+      </nav>
+    </div>
+
+  </header>
   <head>
-    <meta charset="utf-8" />
-
-    <title>Actividay</title>
-
-    <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <h1 class="text-center">Actividay</h1>
     <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
   </head>
 
   <body>

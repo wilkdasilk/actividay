@@ -11,18 +11,11 @@
   </head>
 
   <body>
-    <div class="container background">
-      <div id="cutout">
-      </div>
-      <div class="conatiner">
+    <div class="container">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
 
-
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-
-
-
-      </div>
+      <%= yield %>
     </div>
     </body>
 </html>

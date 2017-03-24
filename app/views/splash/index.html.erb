@@ -1,8 +1,10 @@
-<div class="">
-  <div id="rotating-item-wrapper">
-    <img src="/carousel/concert.jpg" class="rotating-item" alt="">
-    <img src="/carousel/cooking-for-a-crowd.jpg" class="rotating-item" alt="">
-    <img src="/carousel/hiking.jpg" class="rotating-item" alt="">
-    <img src="/carousel/reading.jpg" class="rotating-item" alt="">
+<div>
+  <div class="col-xs-12 col-md-6 vertical-align">
+    <%= render "caption" %>
+  </div>
+  <div class="col-xs-12 col-md-6 vertical-align">
+    <%= render "slideshow" %>
   </div>
 </div>
+
+<%= javascript_include_tag "splash", "data-turbolinks-track" => true %>

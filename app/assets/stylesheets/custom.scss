@@ -2,22 +2,23 @@
 @import 'bootstrap';
 
 body {
-  background-image: url("/background.png");
-  background-repeat: no-repeat;
+  background: url("/background.png");
+  background-size: 100vw 100vh;
 }
 
-#rotating-item-wrapper {
-	position: fixed;
-	width: 100vw;
-	height: 347px;
-  top: 0;
-  left: 0;
-}
 .rotating-item {
 	display: none;
-  width: 40vw;
-  max-height: 20vw;
+  height: 35vh;
   object-fit: cover;
   overflow: hidden;
-	position: absolute;
+}
+
+.vertical-align {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.messages {
+  background-color: grey;
 }

@@ -1,9 +1,28 @@
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 
-/* navigation */
-
+body {
+  background: url("/background.png");
+  background-size: 100vw 100vh;
 }
+
+.rotating-item {
+	display: none;
+  height: 35vh;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+.vertical-align {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.messages {
+  background-color: grey;
+}
+/* navigation */
 
 #login-nav {
   text-align: end;

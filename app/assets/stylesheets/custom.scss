@@ -2,8 +2,10 @@
 @import 'bootstrap';
 
 body {
+  background-color: rgb(255,127,80);
   background: url("/background.png");
-  background-size: 100vw 100vh;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
   font-family: 'Lato', sans-serif;
 }
 
@@ -84,4 +86,23 @@ font-family: 'Arimo', sans-serif;
     float: none;
     display: inline-block;
   }
+}
+
+.image-container {
+  height: 20vw;
+}
+
+.splash-animation {
+  max-height: 20vw;
+}
+
+.github {
+  height: 60px;
+}
+
+.navbar-bottom {
+  background-color: rgba(255,127,80,1);
+  position: static;
+  bottom:0px;
+  margin-top: 50px; /* or just use:  margin-top: 50px;*/
 }

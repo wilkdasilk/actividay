@@ -10,7 +10,7 @@ Activity.delete_all
 
 Activity.create!(
                 title: "Read an article about something you are interested in.",
-                description: "Articles cover all sorts of interesting, informative, and challenging subjects. They are a great way to find out new and exciting things, or build a deeper understanding of a subject. Once you've read an article, think about what you learned, and what parts of the article you would recommend to someone else. ALso, you might think about the things that challenged your perspective.",
+                description: "Articles cover all sorts of interesting, informative, and challenging subjects. They are a great way to find out new and exciting things, or build a deeper understanding of a subject. Once you've read an article, think about what you learned, and what parts of the article you would recommend to someone else. Also, you might think about the things that challenged your perspective.",
                 example: "There are many periodicals that specialize in specfic subject matter. Try one you've heard of, or check and see if they offer anything on the internet. Popular Science, Cooks Illustrated, Rock & Ice, there are dozens!"
                  )
 Activity.create!(

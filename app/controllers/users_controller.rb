@@ -13,8 +13,12 @@ class UsersController < ApplicationController
   end
 
   def show
-    user_id = params[:id]
-    @user = User.find_by_id(user_id)
+    if params[:id] = current_user.id
+      redirect_to root_path
+    else
+      user_id = params[:id]
+      @user = User.find_by_id(user_id)
+    end
   end
 
 end

@@ -10,7 +10,7 @@
 
   <div class="field form-group">
     <%= f.label :born_on %><br />
-    <%= f.date_select :born_on, start_year: Time.zone.now.year - 120, end_year: (Time.zone.now.year + 1), order: [:month, :day, :year], required: true, class: "form-control" %>
+    <%= f.date_select :born_on, start_year: Time.zone.now.year - 120, end_year: (Time.zone.now.year + 1), order: [:month, :day, :year], prompt: true, required: true, class: "form-control" %>
   </div>
 
   <div class="field form-group">

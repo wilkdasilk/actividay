@@ -1,3 +1,20 @@
-<div>
-This will be a splash page
+<div class="row">
+  <div class="col-xs-12 col-md-4 text-center">
+    <div class="image-container">
+      <%= link_to image_tag("/splash-animation/sad.gif", :class => 'img-responsive splash-animation center-block'), new_user_session_path %>
+    </div>
+     <h2>Feeling Bored?</h2>
+  </div>
+  <div class="col-xs-12 col-md-4 text-center">
+    <div class="image-container">
+      <%= link_to image_tag("/splash-animation/tablet.gif", :class => 'img-responsive splash-animation center-block'), new_user_session_path %>
+    </div>
+    <h2>Let Us Help You...</h2>
+  </div>
+  <div class="col-xs-12 col-md-4 text-center">
+    <div class="image-container">
+      <%= link_to image_tag("/splash-animation/happy.gif", :class => 'img-responsive splash-animation center-block'), new_user_session_path %>
+    </div>
+    <h2>Experience Life!</h2>
+  </div>
 </div>

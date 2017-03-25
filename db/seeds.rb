@@ -6,6 +6,38 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+User.delete_all
+
+User.create!(
+                name: "Auston",
+                born_on: Date.new(1992,4,16),
+                goals: "Do things",
+                zip: "92612",
+                email: "auston@me.com",
+                password: "yeahyeah",
+                password_confirmation: "yeahyeah"
+)
+User.create!(
+                name: "John",
+                born_on: Date.new(1980,1,01),
+                goals: "Smile everyday!",
+                zip: "92612",
+                email: "john@me.com",
+                password: "nonono",
+                password_confirmation: "nonono"
+)
+User.create!(
+                name: "Sammy Sam",
+                born_on: Date.new(1989,2,14),
+                goals: "Learn to cook!",
+                zip: "94104",
+                email: "sammysam@me.com",
+                password: "maybe???",
+                password_confirmation: "maybe???"
+)
+
+
+
 Activity.delete_all
 
 Activity.create!(

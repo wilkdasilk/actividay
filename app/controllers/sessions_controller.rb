@@ -16,7 +16,7 @@ class SessionsController < Devise::SessionsController
     def change_challenges_to_dormant
       p "change_challenges_to_dormant"
       current_user.challenges.each do |challenge|
-        if (challenge.created_at < 1.day.ago && challenge.unchosen)
+        if (challenge.created_at < 1.day.ago && challenge.unchosen?)
           challenge.status = :dormant
           challenge.save
         end
@@ -46,7 +46,5 @@ class SessionsController < Devise::SessionsController
         c.save
       end
     end
-
-
 
 end

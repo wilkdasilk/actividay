@@ -4,6 +4,19 @@
 body {
   background: url("/background.png");
   background-size: 100vw 100vh;
+  font-family: 'Lato', sans-serif;
+}
+
+#logo {
+  width: 30vw;
+}
+
+h1, h2, h3, h4, h5, h6 {
+font-family: 'Arimo', sans-serif;
+}
+
+.splash {
+  border: 1px solid black;
 }
 
 .rotating-item {

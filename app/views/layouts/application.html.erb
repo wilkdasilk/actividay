@@ -1,24 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-  <header class="navbar">
-    <div class="container">
+  <head>
+    <title>Actividay</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
+    <link href="https://fonts.googleapis.com/css?family=Arimo|Lato" rel="stylesheet">
+  </head>
+  <div class="col-xs-12">
+    <img class="img-responsive center-block" id="logo" src="/logo.png" alt="Actividay-Logo">
+  </div>
+
+    <header class="navbar">
+      <div class="container">
       </ul>
       <nav>
         <ul class="nav navbar-nav">
           <li><%= link_to "Somewhere", "#" %></li>
           <li><%= link_to "Over there", "#" %></li>
-          <li><%= link_to "That place", "#" %></li>
+          <li><%= link_to "Log Out", destroy_user_session_path, method: "delete" %></li>
         </ul>
       </nav>
     </div>
 
   </header>
-  <head>
-    <h1 class="text-center">Actividay</h1>
-    <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track": "reload" %>
-    <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
-  </head>
 
   <body>
     <div class="container">

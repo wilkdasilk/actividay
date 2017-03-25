@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :challenges, except: [:new, :index, :edit]
   # Why custom registrations? To handle additional user fields: http://jacopretorius.net/2014/03/adding-custom-fields-to-your-devise-user-model-in-rails-4.html
   devise_for :users, :controllers => { registrations: 'registrations' }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -10,7 +11,6 @@ Rails.application.routes.draw do
 
   #activites routes
   get "/activities", to: "activities#index"
-  get "actiivities/:id", to: "activities#show", as: "activity_show"
-
+  get "/activities/:id", to: "activities#show", as: "activity_show"
 
 end

@@ -1,7 +1,2 @@
-<div class="activity-card col-md-8 col-md-offset-2 col-xs-12">
-  <div class="col-xs-12 card">
-    <h3 class=""><%= @activity.title %></h3>
-    <h4>Description:</h4><p><%= @activity.description %></p>
-    <h4>Example:</h4><p><%= @activity.example %></p>
-  </div>
-</div>
+
+<%= render "activity", activity: @activity %>

@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   #activites routes
   get "/activities", to: "activities#index"
-  get "actiivities/:id", to: "activities#show", as: "activity_show"
+  get "/activities/:id", to: "activities#show", as: "activity_show"
 
 
 end

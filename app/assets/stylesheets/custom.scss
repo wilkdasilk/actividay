@@ -4,8 +4,8 @@
 /* Variables */
 $heading: "Arimo", sans-serif;
 $body-text: "Lato", sans-serif;
-$activity-unselect: rgba(111, 124, 111, 1);
-$activity-select: rgba(111, 124, 111, .5);
+$challenge-unselect: rgba(111, 124, 111, .5);
+$challenge-select: rgba(111, 124, 111, 1);
 
 /*Layout*/
 
@@ -74,8 +74,20 @@ font-family: $heading;
   background-color: rgba(255,127,80,.8);
   border-color: rgba(255,127,80,.6)
 }
-/* navigation */
 
+.github {
+  height: 60px;
+}
+
+.image-container {
+  height: 20vw;
+}
+
+.splash-animation {
+  max-height: 20vw;
+}
+
+/* navigation */
 
 #login-nav {
   text-align: end;
@@ -90,25 +102,6 @@ font-family: $heading;
     float: none;
     display: inline-block;
   }
-}
-
-/*Activity show*/
-
-.col-xs-12.ball {
-  border-style: solid;
-  border-color: black;
-}
-
-.image-container {
-  height: 20vw;
-}
-
-.splash-animation {
-  max-height: 20vw;
-}
-
-.github {
-  height: 60px;
 }
 
 .navbar-bottom {

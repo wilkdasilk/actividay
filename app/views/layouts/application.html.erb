@@ -7,30 +7,30 @@
     <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
     <link href="https://fonts.googleapis.com/css?family=Arimo|Lato" rel="stylesheet">
   </head>
+  <body>
+    <div class="container-fluid">
       <%= link_to image_tag("/logo.png", :class => 'img-responsive center-block', :id => "logo"), root_path %>
 
-    <header class="navbar">
-      <div class="container">
-      </ul>
-      <nav>
-        <ul class="nav navbar-nav">
-          <li><%= link_to "Somewhere", "#" %></li>
-          <li><%= link_to "Activities", activities_path %></li>
-          <li><%= link_to "All Users", users_path %></li>
-          <% if current_user %>
+      <header class="navbar">
+        <div class="container">
+        </ul>
+        <nav>
+          <ul class="nav navbar-nav">
+            <li><%= link_to "Somewhere", "#" %></li>
+            <li><%= link_to "Activities", activities_path %></li>
+            <li><%= link_to "All Users", users_path %></li>
+            <% if current_user %>
             <li><%= link_to "My Profile", user_path(current_user) %></li>
             <li><%= link_to "Logout", destroy_user_session_path, method: "delete" %></li>
-          <% else %>
+            <% else %>
             <li><%= link_to "Sign Up", new_user_registration_path %></li>
             <li><%= link_to "Login", new_user_session_path %></li>
-          <% end %>
-        </ul>
-      </nav>
-    </div>
+            <% end %>
+          </ul>
+        </nav>
+      </div>
+    </header>
 
-  </header>
-
-  <body>
     <div class="container">
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
@@ -58,5 +58,6 @@
         </div>
       </div>
     </nav>
+    </div>
     </body>
 </html>

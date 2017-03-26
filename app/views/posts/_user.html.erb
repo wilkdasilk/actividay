@@ -5,7 +5,7 @@
     <p class="card-text">Goals: <%= user.goals %></p>
     <ul class="list-group list-group-flush">
       <li class="list-group-item">Birthday: <%= user.born_on.strftime("%B %d") %></li>
-      <li class="list-group-item">Current City: <%= user.zip %></li>
+      <li class="list-group-item">Current City: <%= ZipCodes.identify(user.zip)[:city] %>, <%= ZipCodes.identify(user.zip)[:state_code] %></li>
       <li class="list-group-item">User since <%= user.created_at.strftime("%B %d, %Y")%></li>
     </ul>
     <% if user == current_user %>

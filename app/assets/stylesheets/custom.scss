@@ -114,3 +114,28 @@ font-family: $heading;
   bottom:0px;
   margin-top: 50px; /* or just use:  margin-top: 50px;*/
 }
+
+.challenge {
+  display: flex;
+}
+
+.challenge-card-selected {
+  color: white;
+  background-color: rgba(111,124,111,1);
+}
+
+.challenge-card-unselected {
+  color: white;
+  background-color: rgba(111,124,111,.5);
+}
+
+.arrows {
+  width: 50px;
+  height: 100%;
+  padding-right: 15px;
+}
+
+.challenge-words {
+  padding-left: 20px;
+  padding-right: 20px;
+}

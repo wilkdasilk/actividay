@@ -20,20 +20,19 @@ class ChallengesController < ApplicationController
 
   # PATCH/PUT /challenges/1
   def update
-    respond_to do |format|
-      if @challenge.update(challenge_params)
-        format.html { redirect_to @challenge, notice: 'Challenge was successfully updated.' }
-      else
-        format.html { render :edit }
+    @challenge = Challenge.find(params[:id])
+    if @challenge.unchosen?
+      @challenge.status = :chosen
+      @challenge.save
+      respond_to do |format|
+        format.html { redirect_to root_path, notice: "You've accepted a challenge! Go get 'em!'"}
       end
-    end
-  end
-
-  # DELETE /challenges/1
-  def destroy
-    @challenge.destroy
-    respond_to do |format|
-      format.html { redirect_to challenges_url, notice: 'Maybe next time...' }
+    elsif @challenge.chosen?
+      @challenge.status= :unchosen
+      @challenge.save
+      respond_to do |format|
+        format.html { redirect_to root_path, notice: "Maybe next time!"}
+      end
     end
   end
 
@@ -53,6 +52,7 @@ class ChallengesController < ApplicationController
       else
         flash[:notice] = "That's not your challenge!"
         redirect_to challenge_path(@challenge)
+      end
     end
 
 end

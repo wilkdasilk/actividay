@@ -1,20 +1,24 @@
-<table>
-  <thead>
-    <tr>
-      <th>Title:</th>
-      <th>Description:</th>
-      <th>Examples:</th>
-      <th>Status:</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @user.challenges.each do |challenge| %>
-      <tr>
-        <td><%= challenge.activity.title %></td>
-        <td><%= challenge.activity.description %></td>
-        <td><%= challenge.activity.example %></td>
-        <td><%= challenge.status %></td>
-      </tr>
+<% @user.challenges.where(status: [:unchosen, :chosen]).order(activity_id: :desc).each do |challenge| %>
+  <%= link_to challenge_path(challenge), method: 'put' do %>
+    <% if challenge.chosen? %>
+      <div class="card challenge-card-selected">
+    <% else %>
+      <div class="card challenge-card-unselected">
     <% end %>
-  </tbody>
-</table>
+        <div class="row challenge">
+          <div class="challenge-words">
+            <h3><%= challenge.activity.title %></h3>
+            <p><%= challenge.activity.example %></p>
+          </div>
+          <% if challenge.chosen? %>
+          <div class="challenge-post">
+            <%= link_to image_tag("/arrows.png", {:class=>"arrows"}), challenge_path(challenge) %>
+          </div>
+          <% else %>
+          <div>
+          </div>
+          <% end %>
+        </div>
+      </div>
+  <% end %>
+<% end %>

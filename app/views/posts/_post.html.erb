@@ -1,0 +1,8 @@
+<div class="card">
+  <h1><strong>Title:</strong><%= post.title %></h1>
+  <h3><strong>What I did:</strong> <%= post.challenge.activity.title %></h3>
+  <h3><strong>My Thoughts:</strong></h3>
+  <p><%= post.content %></p>
+
+  <%= link_to 'Edit', edit_post_path(post) %>
+</div>

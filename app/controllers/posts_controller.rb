@@ -29,9 +29,11 @@ class PostsController < ApplicationController
 
   # DELETE /posts/1
   def destroy
+    @post.challenge.status = :chosen
+    @post.challenge.save
     @post.destroy
     respond_to do |format|
-      format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
+      format.html { redirect_to root_path, notice: 'Post was successfully destroyed.' }
     end
   end
 
@@ -43,7 +45,7 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.fetch(:post, {})
+      params.require(:post).permit(:title, :content)
     end
 
     def post_owner?

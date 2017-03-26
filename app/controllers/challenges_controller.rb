@@ -7,7 +7,11 @@ class ChallengesController < ApplicationController
 
   # PATCH/PUT /challenges/1
   def update
-    if @challenge.unchosen?
+    if @challenge.posted?
+      respond_to do |format|
+        format.html { redirect_to root_path, notice: "You can't give up on a challenge you've posted to."}
+      end
+    elsif @challenge.unchosen?
       @challenge.status = :chosen
       @challenge.save
       respond_to do |format|
@@ -24,7 +28,9 @@ class ChallengesController < ApplicationController
 
   def build_post
     if !@challenge.post
-      @challenge.build_post.save
+      @challenge.build_post
+      @challenge.status = :posted
+      @challenge.save
     end
     redirect_to edit_post_path(@challenge.post)
   end

@@ -1,0 +1,15 @@
+<div class="card" >
+  <img class="card-img-top" src="..." alt="Card image cap">
+  <div class="card-block">
+    <h4 class="card-title"><%= user.name %></h4>
+    <p class="card-text">Goals: <%= user.goals %></p>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Birthday: <%= user.born_on.strftime("%B %d") %></li>
+      <li class="list-group-item">Current City: <%= user.zip %></li>
+      <li class="list-group-item">User since <%= user.created_at.strftime("%B %d, %Y")%></li>
+    </ul>
+    <% if user == current_user %>
+      <%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn-primary btn-cust" %>
+    <% end %>
+  </div>
+</div>

@@ -11,27 +11,10 @@ class PostsController < ApplicationController
   def show
   end
 
-  # GET /posts/new
-  def new
-    @post = Post.new
-  end
-
   # GET /posts/1/edit
   def edit
   end
 
-  # POST /posts
-  def create
-    @post = Post.new(post_params)
-
-    respond_to do |format|
-      if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
-      else
-        format.html { render :new }
-      end
-    end
-  end
 
   # PATCH/PUT /posts/1
   def update
@@ -64,7 +47,7 @@ class PostsController < ApplicationController
     end
 
     def post_owner?
-      if current_user = @post.user
+      if current_user = @post.challenge.user
         true
       else
         flash[:notice] = "That's not yours!"

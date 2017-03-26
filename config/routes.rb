@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  
+  resources :posts
+
   resources :challenges, except: [:new, :index, :edit]
   # Why custom registrations? To handle additional user fields: http://jacopretorius.net/2014/03/adding-custom-fields-to-your-devise-user-model-in-rails-4.html
   devise_for :users, :controllers => { registrations: 'registrations', sessions: 'sessions' }

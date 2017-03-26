@@ -1,9 +1,9 @@
 <% @user.challenges.where(status: [:unchosen, :chosen]).order(activity_id: :desc).each do |challenge| %>
   <%= link_to challenge_path(challenge), method: 'put' do %>
     <% if challenge.chosen? %>
-      <div class="card challenge-card-selected">
+      <div class="card challenge-card selected">
     <% else %>
-      <div class="card challenge-card-unselected">
+      <div class="card challenge-card unselected">
     <% end %>
         <div class="row challenge">
           <div class="challenge-words">

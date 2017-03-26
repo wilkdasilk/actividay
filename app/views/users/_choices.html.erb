@@ -1,0 +1,20 @@
+<table>
+  <thead>
+    <tr>
+      <th>Title:</th>
+      <th>Description:</th>
+      <th>Examples:</th>
+      <th>Status:</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @user.challenges.each do |challenge| %>
+      <tr>
+        <td><%= challenge.activity.title %></td>
+        <td><%= challenge.activity.description %></td>
+        <td><%= challenge.activity.example %></td>
+        <td><%= challenge.status %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

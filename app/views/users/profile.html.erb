@@ -1,6 +1,12 @@
 <div class="col-md-8">
-  <%= render "choices", user: @user %>
+  <div class="card">
+    <h2 class="text-center">Today's Activities!</h2>
+    <hr>
+    <%= render "choices", user: @user %>
+  </div>
 </div>
 <div class="col-md-4">
-  <%= render "recent", user: @user %>
+  <div class="card">
+    <%= render "recent", user: @user %>
+  </div>
 </div>

@@ -15,3 +15,11 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require turbolinks
+
+$(document).on('turbolinks:load', function(){
+
+   setTimeout(function(){
+     $('#flash').fadeOut(1000);
+   }, 1000);
+
+});

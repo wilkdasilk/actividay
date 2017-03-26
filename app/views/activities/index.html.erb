@@ -1,11 +1,8 @@
 <% @activities.each do |activity| %>
   <div class="activity-card col-md-8 col-md-offset-2 col-xs-12">
-    <div class="col-xs-8">
-      <h3><%= activity.title %></h3>
-      <h3><%= activity.description %></h3>
-    </div>
-    <div class="col-xs-4">
-      <%= button_to "Interested? Find out more!", activity_show_path(activity), method: "get" %>
+    <div class="col-xs-8 card">
+      <h3><%= link_to "#{activity.title}", activity_show_path(activity) %></h3>
+      <p><%= activity.description %></p>
     </div>
   </div>
   <br>

@@ -15,6 +15,7 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require turbolinks
+//= require users
 
 $(document).on('turbolinks:load', function(){
 

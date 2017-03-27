@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <style media="screen">
+      body{
+        background-color: coral;
+      }
+      .card {
+        background: rgba(255,255,255,.85);
+        padding: 10px;
+        border-radius: 2rem;
+        margin: .5rem auto;
+      }
+      .title {
+        margin: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h4 class="title">Hey <%= @user.name %>!</h4>
+      <p>
+        We just wanted to welcome you to Actividay. We hope that your
+        life becomes a little more interesting thanks to our activity ideas.
+      </p>
+      <p>
+        When you finish an activity, please share your experience with the world
+        so that others can be inspired by your success!
+      </p>
+      <p>
+        Thank you for joining the community!
+      </p>
+      <br>
+      Sincerely,<br>
+      -The Actividay Team
+    </div>
+  </body>
+
+</html>

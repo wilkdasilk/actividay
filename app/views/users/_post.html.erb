@@ -1,5 +1,8 @@
 <div class="card">
   <h1><strong>Title:</strong><%= post.title %></h1>
+  <% if post.avatar.url.present? %>
+    <div><%= image_tag(post.avatar.url(:profile)) %></div>
+  <% end %>
   <h3><strong>My Thoughts:</strong></h3>
   <p><%= truncate(post.content, length:30) %></p>
 

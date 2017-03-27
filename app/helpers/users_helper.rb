@@ -2,7 +2,7 @@ module UsersHelper
 
   def user_img_or_default(user)
     return default_img_url if user.avatar.file.nil?
-    user.avatar.url
+    user.avatar.url(:profile)
   end
 
   private

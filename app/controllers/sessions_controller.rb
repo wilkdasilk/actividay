@@ -9,13 +9,14 @@ class SessionsController < Devise::SessionsController
       if challenges_needed > 0
         create_challenges(challenges_needed)
       end
+      delete_expired
     end
 
     private
 
     def change_challenges_to_dormant
       current_user.challenges.each do |challenge|
-        if (challenge.created_at < 1.day.ago && challenge.unchosen?)
+        if (challenge.created_at < 1.day.ago && !challenge.posted?)
           challenge.status = :dormant
           challenge.save
         end
@@ -40,6 +41,14 @@ class SessionsController < Devise::SessionsController
       challenges_needed.times do |i|
         c = current_user.challenges.build(:activity_id => a[i].id)
         c.save
+      end
+    end
+
+    def delete_expired
+      current_user.challenges.each do |challenge|
+        if challenge.expired?
+          challenge.delete
+        end
       end
     end
 

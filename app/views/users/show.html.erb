@@ -1,12 +1,29 @@
 <div class="col-md-4">
-  <div class="card">
     <%= render "user", user: @user %>
-  </div>
 </div>
-<div class="col-md-8">
-  <% @user.posts.each do |post| %>
+
+<div class="col-md-4">
+  <div class="card">
+    <h3 class="text-center">Posts</h3>
+    <% @user.posts.each do |post| %>
     <div class="card">
       <%= render "post", post: post %>
     </div>
-  <% end %>
+    <% end %>
+  </div>
+</div>
+
+<div class="col-md-4">
+  <div class="card">
+    <h3 class="text-center">Recent Challenges</h3>
+    <% if current_user == @user %>
+      <h5 class="text-center">Completed one of these? Post about it!</h5>
+    <% end %>
+    <hr>
+    <% @user.challenges.each do |challenge| %>
+      <div class="card">
+        <%= render "challenges", challenge: challenge %>
+      </div>
+    <% end %>
+  </div>
 </div>

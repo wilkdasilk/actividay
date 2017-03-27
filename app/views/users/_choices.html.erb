@@ -13,6 +13,9 @@
             <div class="challenge-words">
               <h3><%= challenge.activity.title %></h3>
               <p><%= challenge.activity.description %></p>
+              <div class="center">
+                <%= button_to "I'm not interested in this activity.", { controller: :challenges, action: :update_not_interested, id: challenge.id }, method: :patch, data: { confirm: "Are you sure? You won't ever get this activity again." }, class: "red btn" %>
+              </div>
             </div>
             <% if challenge.chosen? %>
             <div class="challenge-post">

@@ -27,6 +27,14 @@ class ChallengesController < ApplicationController
     end
   end
 
+  def update_not_interested
+    @challenge.status = :not_interested
+    @challenge.save
+    respond_to do |format|
+      format.html { redirect_to root_path, notice: "Ok, you won't see it again!!"}
+    end
+  end
+
   def build_post
     if !@challenge.post
       @challenge.build_post

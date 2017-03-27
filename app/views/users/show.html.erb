@@ -21,7 +21,7 @@
     <% end %>
     <hr>
     <% @user.challenges.each do |challenge| %>
-      <div class="card">
+      <div>
         <%= render "challenges", challenge: challenge %>
       </div>
     <% end %>

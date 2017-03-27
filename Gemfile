@@ -39,6 +39,9 @@ gem 'carrierwave', '~> 1.0'
 gem 'rmagick'
 #zip-codes for converting zip-codes to cities
 gem 'zip-codes'
+# Figaro for keeping keys secret
+gem "figaro"
+
 # For use when deploying to heroku
 gem 'rails_12factor', group: :production
 

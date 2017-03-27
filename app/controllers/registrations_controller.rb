@@ -3,6 +3,7 @@ class RegistrationsController < Devise::RegistrationsController
   after_filter :after_signup, :only => :create
 
   def after_signup
+    WelcomeMailer.welcome_email(current_user).deliver
     change_challenges_to_dormant
     change_challenges_to_expired
     challenges_needed = (3 - num_active_challenges)

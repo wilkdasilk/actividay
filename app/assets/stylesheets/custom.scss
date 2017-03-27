@@ -97,7 +97,7 @@ font-family: $heading;
 }
 
 .challenge {
-  display: flex;
+  // display: flex;
 }
 
 .challenge-card.selected {
@@ -136,4 +136,15 @@ font-family: $heading;
 
 .recent-post {
   padding: 0 10px 0 10px;
+}
+
+.not-interested {
+  width: 50px;
+  padding-right: 15px;
+}
+
+.choice-button {
+  position: relative;
+  float: right;
+  bottom: 55px;
 }

@@ -1,6 +1,6 @@
 class ChallengesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_challenge, only: [:show, :update, :destroy, :build_post]
+  before_action :set_challenge, only: [:show, :update, :destroy, :build_post, :not_interested]
   before_action :challenge_owner?, only: [:update, :destroy]
   # GET /challenges/1
   def show
@@ -24,6 +24,14 @@ class ChallengesController < ApplicationController
       respond_to do |format|
         format.html { redirect_to root_path, notice: "Maybe next time!"}
       end
+    end
+  end
+
+  def not_interested
+    @challenge.status = :not_interested
+    @challenge.save
+    respond_to do |format|
+      format.html { redirect_to root_path, notice: "Ok, you won't see it again!!"}
     end
   end
 

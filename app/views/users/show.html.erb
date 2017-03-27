@@ -1,1 +1,12 @@
-<%= render "card", user: @user %>
+<div class="col-md-4">
+  <div class="card">
+    <%= render "user", user: @user %>
+  </div>
+</div>
+<div class="col-md-8">
+  <% @user.posts.each do |post| %>
+    <div class="card">
+      <%= render "post", post: post %>
+    </div>
+  <% end %>
+</div>

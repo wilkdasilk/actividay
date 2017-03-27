@@ -2,10 +2,12 @@ class UsersController < ApplicationController
 
   before_action :authenticate_user!, except: [:profile]
 
+  #GET users
   def index
     @users = User.all
   end
 
+  #GET profile
   def profile
     if current_user
       @user = current_user
@@ -14,9 +16,13 @@ class UsersController < ApplicationController
     end
   end
 
+  #GET user is user exists, otherwise redirects home.
   def show
-    user_id = params[:id]
-    @user = User.find_by_id(user_id)
+    if User.exists?(params[:id])
+      @user = User.find_by_id(params[:id])
+    else
+      redirect_to root_path
+    end
   end
 
 end

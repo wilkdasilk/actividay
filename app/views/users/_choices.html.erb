@@ -17,24 +17,24 @@
               <h3><%= challenge.activity.title %></h3>
               <p><%= challenge.activity.description %></p>
             </div>
-          </div>
           <br>
           <br>
         </div>
-        <% end %>
-        <% if challenge.chosen? %>
-        <div class="choice-button">
-          <h4><%= link_to "Post About It", new_post_path(challenge.id), method: "get" %>
-            <%= link_to image_tag("/arrows.png", {:class=>"arrows", :alt => "post",}), new_post_path(challenge.id) %>
-          </h4>
         </div>
-        <% else %>
-        <div class="choice-button">
-          <h4><%= link_to "Remove Forever", not_interested_challenge_path(challenge), method: "put", data: { confirm: "Click 'OK' if you never want this activity listed again." } %>
-            <%= link_to image_tag("/not_interested.png", {:alt => "not interested", :class=>"not-interested"}), not_interested_challenge_path(challenge), method: "put", data: { confirm: "Click 'OK' if you never want this activity listed again." } %>
-          </h4>
-        </div>
-        <% end %>
+  <% end %>
+  <% if challenge.chosen? %>
+  <div class="choice-button">
+    <h4><%= link_to "Post About It", new_post_path(challenge.id), method: "get" %>
+      <%= link_to image_tag("/arrows.png", {:class=>"arrows", :alt => "post",}), new_post_path(challenge.id) %>
+    </h4>
+  </div>
+  <% else %>
+  <div class="choice-button">
+    <h4><%= link_to "Remove Forever", not_interested_challenge_path(challenge), method: "put", data: { confirm: "Click 'OK' if you never want this activity listed again." } %>
+      <%= link_to image_tag("/not_interested.png", {:alt => "not interested", :class=>"not-interested"}), not_interested_challenge_path(challenge), method: "put", data: { confirm: "Click 'OK' if you never want this activity listed again." } %>
+    </h4>
+  </div>
+  <% end %>
   <% end %>
 
 

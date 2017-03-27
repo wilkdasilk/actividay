@@ -2,9 +2,14 @@ Rails.application.routes.draw do
 
   resources :posts, except: [:new]
 
-  resources :challenges, except: [:new, :index, :edit]
+  resources :challenges, except: [:new, :index, :edit] do
+    member do
+      patch :not_interested
+      put :not_interested
+    end
+  end
+
   get "/challenges/:id/new", to: "challenges#build_post", as: "new_post"
-  put "/challenges/:id/", to: "challenges#update_not_interested", as: "not_interested"
 
   # Why custom registrations? To handle additional user fields: http://jacopretorius.net/2014/03/adding-custom-fields-to-your-devise-user-model-in-rails-4.html
   devise_for :users, :controllers => { registrations: 'registrations', sessions: 'sessions' }

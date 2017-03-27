@@ -39,7 +39,8 @@ class SessionsController < Devise::SessionsController
     def create_challenges(challenges_needed)
       list = current_user.challenges.where(status: [:not_interested])
       challenges_needed.times do
-        while list.include(a)
+        a = Activity.order("RANDOM()").first
+        while list.include?(a)
           a = Activity.order("RANDOM()").first
         end
         c = current_user.challenges.build(:activity_id => a.id)

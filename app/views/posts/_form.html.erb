@@ -22,12 +22,30 @@
     <%= f.text_area :content, required: true, class: "form-control" %>
   </div>
 
+  <% if post.avatar.url.present? %>
+  <div><%= image_tag(post.avatar.url(:large)) %></div>
+    <div class="field form-group">
+      <div class="checkbox">
+        <%= f.label :remove_photo do %>
+          <%= f.check_box :remove_avatar %>
+          Remove photo
+        <% end %>
+      </div>
+    </div>
+  <% end  %>
+
+  <div class="field form-group">
+    <%= f.label :photo %><br />
+    <%= f.file_field :avatar, class: "form-control", onchange: "validateFiles(this);",
+    data: { max_file_size: 5.megabytes }  %>
+  </div>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: "btn btn-primary btn-cust" %>
   </div>
 
 <% end %>
 
 <div class="center">
-  <%= button_to 'Delete', { controller: :posts, action: :destroy, id: @post.id }, method: :delete, class: "red btn" %>
+  <%= button_to 'Delete', { controller: :posts, action: :destroy, id: post.id }, method: :delete, class: "red btn" %>
 </div>

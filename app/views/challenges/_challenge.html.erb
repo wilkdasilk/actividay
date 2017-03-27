@@ -8,8 +8,8 @@
   <div class="card">
     <h2><%= challenge.post.title %></h2>
     <p><%= challenge.post.content %><p>
-    <%= button_to "Edit Your Post", edit_post_path(challenge.post), method: "get" %>
+    <%= button_to "Edit Your Post", edit_post_path(challenge.post), method: "get", class: "btn btn-primary btn-cust" %>
   </div>
 <% else %>
-  <%= button_to "Want to Share Your Experience?", new_post_path, method: "get" %>
+  <%= button_to "Want to Share Your Experience?", new_post_path, method: "get", class: "btn btn-primary btn-cust" %>
 <% end %>

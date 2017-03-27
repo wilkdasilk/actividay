@@ -50,7 +50,7 @@ class PostsController < ApplicationController
 
     # Whitelisted parameters
     def post_params
-      params.require(:post).permit(:title, :content)
+      params.require(:post).permit(:title, :content, :avatar, :avatar_cache, :remove_avatar)
     end
 
     # Checks to see if the post is owned by the current_user

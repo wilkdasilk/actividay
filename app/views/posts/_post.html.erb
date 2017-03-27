@@ -1,8 +1,17 @@
-<div>
+<div class="col-md-1">
+  <div><%= owner_avatar_or_default(post) %></div>
+  <div><%= link_to post.challenge.user.name, user_path(post.challenge.user) %></div>
+</div>
+<div class="col-md-11">
+  <h1> <%= post.title %></h1>
+</div>
+<div class="col-md-offset-1 col-md-11">
+  <% if post.avatar.url.present? %>
+    <div><%= image_tag(post.avatar.url(:large)) %></div>
+  <% end %>
   <h3><%= post.challenge.activity.title %></h3>
   <h4><%= post.title %></h4>
   <h5>My Thoughts:</h5>
   <p><%= post.content %></p>
-
-  <%= link_to 'Edit', edit_post_path(post) %>
+  <%= link_to 'Edit', edit_post_path(post) if current_user == post.challenge.user %>
 </div>

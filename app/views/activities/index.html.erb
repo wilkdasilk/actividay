@@ -1,9 +1,13 @@
-<% @activities.each do |activity| %>
-  <div class="activity-card col-md-8 col-md-offset-2 col-xs-12">
-    <div class="col-xs-8 card">
-      <h3><%= link_to "#{activity.title}", activity_show_path(activity) %></h3>
-      <p><%= activity.description %></p>
+<% @activities.each_slice(3) do |slice| %>
+  <div class="row">
+    <% slice.each do |activity| %>
+    <div class="activity-card-all col-md-4">
+      <div class="card">
+        <h3><%= link_to "#{activity.title}", activity_show_path(activity) %></h3>
+        <p><%= truncate(activity.description, length:140) %></p>
+      </div>
+      <br>
     </div>
-  </div>
-  <br>
+    <% end %>
+</div>
 <% end %>

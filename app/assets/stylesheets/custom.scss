@@ -4,8 +4,9 @@
 /* Variables */
 $heading: "Arimo", sans-serif;
 $body-text: "Lato", sans-serif;
-$challenge-unselect: rgba(111, 124, 111, .5);
-$challenge-select: rgba(111, 124, 111, 1);
+$challenge-unselect: rgba(110, 183, 60, .75);
+$challenge-select: rgba(92,170,39,1);
+$post-card: rgba(153, 134, 109, .9);
 
 /*Layout*/
 
@@ -51,26 +52,31 @@ font-family: $heading;
   margin: .5rem auto;
 }
 
-.btn-cust{
-  background-color: rgba(255,127,80,1);
-  border-color: rgba(255,127,80,.8)
+.activity-card-all {
+  float: left;
 }
 
-.btn-cust:active, .btn-cust:focus, .btn-cust:active:focus, .btn-cust:hover, .btn-cust:active:hover, .btn-cust:disabled:hover {
-  background-color: rgba(255,127,80,.8);
-  border-color: rgba(255,127,80,.6)
+.post-card {
+  color: white;
+  background-color: $post-card;
 }
 
-.github {
-  height: 60px;
+.challenge {
+  // display: flex;
 }
 
-.image-container {
-  height: 20vw;
+.challenge-card.selected {
+  color: white;
+  background-color: $challenge-select;
 }
 
-.splash-animation {
-  max-height: 20vw;
+.challenge-card.unselected {
+  color: white;
+  background-color: $challenge-unselect;
+}
+
+.challenge-card a {
+  color: white;
 }
 
 /* navigation */
@@ -97,22 +103,28 @@ font-family: $heading;
   margin-top: 50px;
 }
 
-.challenge {
-  // display: flex;
+// buttons
+
+.btn-cust{
+  background-color: rgba(255,127,80,1);
+  border-color: rgba(255,127,80,.8)
 }
 
-.challenge-card.selected {
-  color: white;
-  background-color: rgba(92,170,39,1);
+.btn-cust:active, .btn-cust:focus, .btn-cust:active:focus, .btn-cust:hover, .btn-cust:active:hover, .btn-cust:disabled:hover {
+  background-color: rgba(255,127,80,.8);
+  border-color: rgba(255,127,80,.6)
 }
 
-.challenge-card.unselected {
-  color: white;
-  background-color: rgba(110, 183, 60, .75);
+.github {
+  height: 60px;
 }
 
-.challenge-card a {
-  color: white;
+.image-container {
+  height: 20vw;
+}
+
+.splash-animation {
+  max-height: 20vw;
 }
 
 .arrows {

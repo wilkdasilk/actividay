@@ -5,6 +5,10 @@
 <div class="col-md-4">
   <div class="card">
     <h3 class="text-center">Posts</h3>
+    <% if @user.posts.length == 0 %>
+      <img src="/posting.gif" alt="No Posts" class="img-responsive splash-animation center-block">
+      <h3 class="text-center">When you make a post, it'll appear here!</h3>
+    <% end %>
     <% @user.posts.each do |post| %>
     <div class="card post-card">
       <%= render "post", post: post %>

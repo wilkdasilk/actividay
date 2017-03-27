@@ -19,6 +19,7 @@
 
 $(document).on('turbolinks:load', function(){
 
+  // flash messages disappear after 2 seconds.
    setTimeout(function(){
      $('#flash').fadeOut(1000);
    }, 1000);

@@ -44,6 +44,15 @@ font-family: $heading;
   padding: 10px;
   border-radius: 2rem;
   margin: .5rem auto;
+  overflow: auto;
+}
+
+.card-img-top {
+  margin:1%;
+}
+
+.responsive {
+  width:98%;
 }
 
 .activity-card {

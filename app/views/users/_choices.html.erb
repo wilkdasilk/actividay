@@ -2,28 +2,40 @@
   <h1 class="text-center">Congratulations!</h1>
   <img class="center-block img-responsive" src="/all_the_things.png" alt="You did all the things!">
 <% else %>
+
+
+
   <% @user.challenges.where(status: [:unchosen, :chosen]).order(activity_id: :desc).each do |challenge| %>
-    <%= link_to challenge_path(challenge), method: 'put' do %>
       <% if challenge.chosen? %>
         <div class="card challenge-card selected">
       <% else %>
         <div class="card challenge-card unselected">
       <% end %>
           <div class="row challenge">
+            <%= link_to challenge_path(challenge), method: 'put' do %>
             <div class="challenge-words">
               <h3><%= challenge.activity.title %></h3>
               <p><%= challenge.activity.description %></p>
             </div>
-            <% if challenge.chosen? %>
-            <div class="challenge-post">
-              <%= link_to image_tag("/arrows.png", {:class=>"arrows"}), challenge_path(challenge) %>
-            </div>
-            <% else %>
-            <div>
-            </div>
+              <% if challenge.chosen? %>
+              <div class="pull-right">
+                <h4><%= link_to "Post About It", challenge_path(challenge) %>
+                  <%= link_to image_tag("/arrows.png", {:class=>"arrows", :alt => "post",}), challenge_path(challenge) %>
+                </h4>
+              </div>
+              <% else %>
+              <div class="pull-right">
+                <h4><%= link_to "Remove Forever", not_interested_challenge_path(challenge), method: "put", data: { confirm: "Click 'OK' if you never want this activity listed again." } %>
+                  <%= link_to image_tag("/not_interested.png", {:alt => "not interested", :class=>"not-interested"}), not_interested_challenge_path(challenge), method: "put", data: { confirm: "Click 'OK' if you never want this activity listed again." } %>
+                </h4>
+              </div>
+              <% end %>
             <% end %>
           </div>
         </div>
-    <% end %>
   <% end %>
+
+
+
+
 <% end %>

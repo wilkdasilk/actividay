@@ -48,11 +48,12 @@ class PostsController < ApplicationController
       end
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+    # Whitelisted parameters
     def post_params
       params.require(:post).permit(:title, :content)
     end
 
+    # Checks to see if the post is owned by the current_user
     def post_owner?
       if current_user = @post.challenge.user
         true

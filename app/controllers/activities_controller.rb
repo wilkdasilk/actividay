@@ -12,6 +12,7 @@ class ActivitiesController < ApplicationController
 
   private
 
+  #If the activity exists, it sets it as the instance variable, otherwise it redirects to all activities.
   def set_activities
     if Activity.exists?(params[:id])
       @activity = Activity.find(params[:id])

@@ -6,7 +6,7 @@ class ChallengesController < ApplicationController
   def show
   end
 
-  # PATCH/PUT /challenges/1
+  # PATCH/PUT, updates a challenge to chosen or unchosen depending on its status.
   def update
     if @challenge.posted?
       respond_to do |format|
@@ -27,6 +27,7 @@ class ChallengesController < ApplicationController
     end
   end
 
+  # PATCH/PUT, updates a challenge to posted if a post has been created for it.
   def not_interested
     @challenge.status = :not_interested
     @challenge.save
@@ -35,6 +36,7 @@ class ChallengesController < ApplicationController
     end
   end
 
+  # creates a new post for a challenge then pasts that post to the posts controller.
   def build_post
     if !@challenge.post
       @challenge.build_post
@@ -45,15 +47,22 @@ class ChallengesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
+    #Sets the challenge if the challenge exists, otherwise redirects home.
     def set_challenge
-      @challenge = Challenge.find(params[:id])
+      if Challenge.exists?(params[:id])
+        @challenge = Challenge.find(params[:id])
+      else
+        redirect_to root_path
+      end
     end
 
+    #whitelisted parameters
     def challenge_params
       params.require(:challenge).permit(:activity_id, :user_id, :status)
     end
 
+    #determines if the challenge is owned by the current_user
     def challenge_owner?
       if current_user = @challenge.user
         true

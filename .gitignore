@@ -17,5 +17,5 @@
 .byebug_history
 
 .DS_Store
-# Ignore bin for user uploads
-bin/
+# Ignore user uploads
+public/uploads

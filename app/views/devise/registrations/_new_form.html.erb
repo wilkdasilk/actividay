@@ -29,6 +29,12 @@
   </div>
 
   <div class="field form-group">
+    <%= f.label :avatar %><br />
+    <%= f.file_field :avatar, class: "form-control", onchange: "validateFiles(this);",
+    data: { max_file_size: 5.megabytes }  %>
+  </div>
+
+  <div class="field form-group">
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>

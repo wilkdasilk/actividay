@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="col-md-1">
   <div><%= owner_avatar_or_default(post) %></div>
   <div><%= link_to post.challenge.user.name, user_path(post.challenge.user) %></div>
@@ -9,8 +10,9 @@
   <% if post.avatar.url.present? %>
     <div><%= image_tag(post.avatar.url(:large)) %></div>
   <% end %>
-  <h3><strong>What I did:</strong> <%= post.challenge.activity.title %></h3>
-  <h3><strong>My Thoughts:</strong></h3>
+  <h3><%= post.challenge.activity.title %></h3>
+  <h4><%= post.title %></h4>
+  <h5>My Thoughts:</h5>
   <p><%= post.content %></p>
   <%= link_to 'Edit', edit_post_path(post) if current_user == post.challenge.user %>
 </div>

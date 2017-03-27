@@ -13,7 +13,7 @@ class ActivitiesController < ApplicationController
   private
 
   def set_activities
-    if @activity = Activity.find(params[:id])
+    if Activity.exists?(params[:id])
       @activity = Activity.find(params[:id])
     else
       redirect_to activities_path

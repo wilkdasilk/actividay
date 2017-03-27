@@ -47,7 +47,7 @@ class ChallengesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_challenge
-      if Challenge.find(params[:id])
+      if Challenge.exists?(params[:id])
         @challenge = Challenge.find(params[:id])
       else
         redirect_to root_path

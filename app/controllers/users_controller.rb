@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    if User.find_by_id(params[:id])
+    if User.exists?(params[:id])
       @user = User.find_by_id(params[:id])
     else
       redirect_to root_path

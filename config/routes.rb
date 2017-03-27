@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
+  #posts routes
   resources :posts, except: [:new]
 
+  #challenges routes with an extra patch/put for posting.
   resources :challenges, except: [:new, :index, :edit] do
     member do
       patch :not_interested
@@ -26,5 +28,7 @@ Rails.application.routes.draw do
   get "/activities", to: "activities#index"
   get "/activities/:id", to: "activities#show", as: "activity_show"
 
+  #catch-all
+  match "*a", to: 'splash#index', via: :all
 
 end

@@ -41,7 +41,7 @@ class PostsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
-      if @post = Post.find(params[:id])
+      if Post.exists?(params[:id])
         @post = Post.find(params[:id])
       else
         redirect_to posts_path

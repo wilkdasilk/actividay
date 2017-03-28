@@ -46,6 +46,8 @@ gem 'friendly_id', '~> 5.2'
 #Heroku email thing
 gem 'sendgrid-ruby'
 
+gem 'rspec-rails'
+
 
 # For use when deploying to heroku
 gem 'rails_12factor', group: :production

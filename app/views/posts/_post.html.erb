@@ -1,8 +1,8 @@
-<div class="card overflow-fix outer-card">
+<div>
   <div class="col-md-1 col-sm-1 col-xs-12">
     <div><%= owner_avatar_or_default(post) %></div>
     <div><%= link_to post.challenge.user.name, user_path(post.challenge.user) %></div>
-    <div><%= time_ago_in_words post.created_at %> ago</div>
+    <h6><%= time_ago_in_words post.created_at %> ago</h6>
   </div>
   <div class="col-md-11 col-sm-11 col-xs-11">
     <% if post.avatar.url.present? %>

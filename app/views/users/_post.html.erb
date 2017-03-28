@@ -5,6 +5,7 @@
 <% end %>
 <div class="col-md-12 col-sm-8 col-xs-12">
   <h3 ><%= link_to post.title, post_path(post) %></h3>
+  <h6><%= time_ago_in_words post.created_at%> ago</h6>
   <p><%= truncate(post.content, length:140) %></p>
   <%= link_to 'Edit', edit_post_path(post) %>
 </div>

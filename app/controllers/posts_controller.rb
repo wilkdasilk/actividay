@@ -5,7 +5,8 @@ class PostsController < ApplicationController
 
   # GET /posts
   def index
-    @posts = Post.all
+    @posts = Post.all.order(created_at: :desc)
+    @posts = @posts.paginate :page => params[:page] || 1, :per_page => 10      
   end
 
   # GET /posts/1

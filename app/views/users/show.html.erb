@@ -3,17 +3,18 @@
 </div>
 
 <div class="col-md-4">
-  <div class="card outer-card">
+  <div class="card outer-card overflow-fix">
     <h3 class="text-center">Posts</h3>
     <% if @user.posts.length == 0 %>
       <img src="/posting.gif" alt="No Posts" class="img-responsive splash-animation center-block">
       <h3 class="text-center">When there is a post, it'll appear here!</h3>
     <% end %>
-    <% @user.posts.each do |post| %>
+    <% user_posts.each do |post| %>
     <div class="card post-card overflow-fix">
       <%= render "post", post: post %>
     </div>
     <% end %>
+    <div class="col-md-12 col-sm-12 col-xs-12 pagination"><%= will_paginate @posts %></div>
   </div>
 </div>
 

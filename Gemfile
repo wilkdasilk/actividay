@@ -46,7 +46,6 @@ gem 'friendly_id', '~> 5.2'
 #Heroku email thing
 gem 'sendgrid-ruby'
 
-gem 'rspec-rails'
 
 
 # For use when deploying to heroku
@@ -55,6 +54,7 @@ gem 'rails_12factor', group: :production
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'rspec-rails', '~> 3.5'
 end
 
 group :development do

@@ -4,7 +4,7 @@ class RegistrationsController < Devise::RegistrationsController
 
   def after_signup
     if current_user
-      WelcomeMailer.welcome_email(current_user).deliver
+      # WelcomeMailer.welcome_email(current_user).deliver
       change_challenges_to_dormant
       change_challenges_to_expired
       challenges_needed = (3 - num_active_challenges)

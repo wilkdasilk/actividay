@@ -19,7 +19,7 @@ class UsersController < ApplicationController
 
   #GET user is user exists, otherwise redirects home.
   def show
-    if User.exists?(params[:id])
+    if User.friendly.exists?(params[:id])
       @user = User.friendly.find(params[:id])
     else
       redirect_to root_path

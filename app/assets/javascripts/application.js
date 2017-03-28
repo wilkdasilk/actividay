@@ -22,7 +22,7 @@ $(document).on('turbolinks:load', function(){
   // flash messages disappear after 2 seconds.
    setTimeout(function(){
      $('#flash').fadeOut(1000);
-   }, 1000);
+   }, 2000);
 
    // called on file upload, client-side
    // source: http://stevenyue.com/blogs/validate-attachment-file-size-and-type-in-rails/

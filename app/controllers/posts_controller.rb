@@ -5,7 +5,12 @@ class PostsController < ApplicationController
 
   # GET /posts
   def index
+<<<<<<< HEAD
     @posts = Post.paginate(page: params[:page], per_page: 1)
+=======
+    @posts = Post.all.order(created_at: :desc)
+    @posts = @posts.paginate :page => params[:page] || 1, :per_page => 10      
+>>>>>>> master
   end
 
   # GET /posts/1

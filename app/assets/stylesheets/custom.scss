@@ -41,12 +41,32 @@ font-family: $heading;
   margin-bottom: 7px;
 }
 
+.outer-card {
+  min-width: 315px;
+}
+
 .card {
   background: rgba(255,255,255,.85);
   padding: 10px;
   border-radius: 2rem;
   margin: .5rem auto;
   box-shadow: 3px 4px 10px rgba(6, 2, 2, 0.26);
+}
+
+.card-img-wrapper {
+  padding:0;
+}
+
+.align-top {
+  margin-top:0;
+}
+
+.pagination {
+  text-align: center;
+}
+
+.previous_page.disabled, .next_page.disabled {
+  visibility: hidden;
 }
 
 .overflow-fix {
@@ -81,6 +101,11 @@ font-family: $heading;
 .challenge-card.selected {
   color: white;
   background-color: $challenge-select;
+}
+
+.challenge-card.posted {
+  color: white;
+  background-color: $post-card;
 }
 
 .challenge-card.unselected {

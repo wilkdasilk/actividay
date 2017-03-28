@@ -9,6 +9,8 @@ class Post < ApplicationRecord
   validates :content, length: {maximum: 1000}
 
   belongs_to :challenge
+  has_one :user, :through => :challenge
+  has_one :activity, :through => :challenge
 
   private
 

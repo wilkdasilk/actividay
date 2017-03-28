@@ -41,8 +41,12 @@ gem 'rmagick'
 gem 'zip-codes'
 # Figaro for keeping keys secret
 gem "figaro"
+<<<<<<< HEAD
 # Kaminari for pagination
 gem 'kaminari'
+=======
+gem "will_paginate", '~> 3.1.0'
+>>>>>>> master
 
 # For use when deploying to heroku
 gem 'rails_12factor', group: :production

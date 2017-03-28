@@ -37,7 +37,7 @@ class SessionsController < Devise::SessionsController
     end
 
     def create_challenges(challenges_needed)
-      list = current_user.challenges.where(status: [:not_interested])
+      list = current_user.challenges.where(status: [:not_interested]).or(current_user.challenges.where("created_at > ?", 7.day.ago))
       challenges_needed.times do
         a = Activity.order("RANDOM()").first
         while list.include?(a)

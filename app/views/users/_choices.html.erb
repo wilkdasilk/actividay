@@ -6,7 +6,7 @@
 
 
   <% @user.challenges.where("created_at > ?", 1.day.ago).order(activity_id: :desc).each do |challenge| %>
-  <%= link_to challenge_path(challenge), method: 'put' do %>
+  <%= link_to challenge_path(challenge), method: 'put', class: "challenge" do %>
       <% if challenge.chosen? %>
         <div class="card challenge-card selected">
       <% elsif challenge.posted? %>
@@ -26,13 +26,13 @@
   <% end %>
   <% if challenge.chosen? %>
   <div class="choice-button">
-    <h4><%= link_to "Post About It", new_post_path(challenge.id), method: "get" %>
+    <h4><%= link_to "Post About It", new_post_path(challenge.id), method: "get", class: "challenge" %>
       <%= link_to image_tag("/arrows.png", {:class=>"arrows", :alt => "post",}), new_post_path(challenge.id) %>
     </h4>
   </div>
   <% elsif challenge.posted? %>
     <div class="choice-button">
-      <h4><%= link_to "Delete Post", post_path(challenge.post), method: "delete", data: { confirm: "Are you sure you want to delete that post?" } %>
+      <h4><%= link_to "Delete Post", post_path(challenge.post), method: "delete", data: { confirm: "Are you sure you want to delete that post?" }, class: "challenge" %>
         <%= link_to image_tag("/not_interested.png", {:alt => "not interested", :class=>"not-interested"}), post_path(challenge.post), method: "delete", data: { confirm: "Are you sure you want to delete that post?" } %>
       </h4>
     </div>

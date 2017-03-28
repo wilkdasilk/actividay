@@ -95,7 +95,8 @@ font-family: $heading;
 }
 
 .challenge {
-  // display: flex;
+  color: #000000;
+  text-decoration: none;
 }
 
 .challenge-card.selected {
@@ -202,7 +203,8 @@ font-family: $heading;
   padding-right: 15px;
 }
 
-.choice-button {
+.choice-button a:link, .choice-button a:visited, .choice-button a:hover, .choice-button a:active {
+  text-decoration: none;
   position: relative;
   float: right;
   bottom: 55px;

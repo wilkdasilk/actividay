@@ -6,7 +6,7 @@ class PostsController < ApplicationController
   # GET /posts
   def index
     @posts = Post.all.order(created_at: :desc)
-    @posts = @posts.paginate :page => params[:page] || 1, :per_page => 10      
+    @posts = @posts.paginate :page => params[:page] || 1, :per_page => 10
   end
 
   # GET /posts/1
@@ -42,8 +42,8 @@ class PostsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
-      if Post.exists?(params[:id])
-        @post = Post.find(params[:id])
+      if Post.friendly.exists?(params[:id])
+        @post = Post.friendly.find(params[:id])
       else
         redirect_to posts_path
       end

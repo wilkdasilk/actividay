@@ -41,7 +41,9 @@ gem 'rmagick'
 gem 'zip-codes'
 # Pagination gem
 gem "will_paginate", '~> 3.1.0'
-
+# pretty urls
+gem 'friendly_id', '~> 5.2'
+#Heroku email thing
 gem 'sendgrid-ruby'
 
 

@@ -1,7 +1,7 @@
 <div>
   <div class="col-md-1 col-sm-1 col-xs-12">
     <div><%= owner_avatar_or_default(post) %></div>
-    <div><%= link_to post.challenge.user.name, user_path(post.challenge.user) %></div>
+    <div><%= link_to post.challenge.user.name, user_path(post.challenge.user), class: "link" %></div>
     <h6><%= time_ago_in_words post.created_at %> ago</h6>
   </div>
   <div class="col-md-11 col-sm-11 col-xs-11">
@@ -14,7 +14,7 @@
       <h4><%= post.title %></h4>
       <h5>My Thoughts:</h5>
       <p><%= post.content %></p>
-      <%= link_to 'Edit', edit_post_path(post) if current_user == post.challenge.user %>
+      <%= link_to "Edit", edit_post_path(post), class: "link" if current_user == post.challenge.user %>
     </div>
   </div>
 </div>

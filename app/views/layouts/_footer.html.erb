@@ -1,0 +1,26 @@
+<footer class="navbar-bottom text-center">
+  <div class="container">
+    <div class="col-xs-12 col-md-4">
+      <h4>About</h4>
+      <div class="col-xs-8 col-xs-offset-2">
+        <h5>Actividay is a project created by Chris Prochnow, Logan Medina, and Auston Wilkinson in an attempt to make the world a better place by providing people with cool activities to do.</h5>
+      </div>
+    </div>
+    <div class="col-xs-6 col-md-4">
+      <h4>Contact</h4>
+      <%= link_to image_tag("/github.png", :class => 'img-responsive github center-block'), "https://github.com/medinal/actividay" %>
+    </div>
+    <div class="col-xs-6 col-md-4">
+      <h4>Links</h4>
+      <% if current_user %>
+      <%= link_to "Home", root_path, class: "link" %><br>
+      <%= link_to "Happenings", posts_path, class: "link" %><br>
+      <%= link_to "My Profile", user_path(current_user), class: "link" %><br>
+      <%= link_to "Logout", destroy_user_session_path, method: "delete", class: "link" %><br>
+      <% else %>
+      <%= link_to "Sign Up", new_user_registration_path, class: "link" %><br>
+      <%= link_to "Login", new_user_session_path, class: "link" %><br>
+      <% end %>
+    </div>
+  </div>
+</footer>

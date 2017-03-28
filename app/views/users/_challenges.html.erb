@@ -4,7 +4,7 @@
   </div>
   <div class="recent-post col-xs-2">
     <% if challenge.user == current_user %>
-      <%= link_to "Show More!", challenge_path(challenge) %>
+      <%= link_to "Show More!", challenge_path(challenge), class: "link" %>
     <% end %>
   </div>
 </div>

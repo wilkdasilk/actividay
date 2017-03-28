@@ -11,8 +11,6 @@
     <div class="col-md-12 col-sm-8 col-xs-12">
       <h1 class="align-top"> <%= post.title %></h1>
       <h3><%= post.challenge.activity.title %></h3>
-      <h4><%= post.title %></h4>
-      <h5>My Thoughts:</h5>
       <p><%= post.content %></p>
       <%= link_to "Edit", edit_post_path(post), class: "link" if current_user == post.challenge.user %>
     </div>

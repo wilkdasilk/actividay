@@ -1,7 +1,5 @@
 <div class="col-md-4">
-  <div class="card">
-    <%= render "user", user: @post.challenge.user %>
-  </div>
+  <%= render :partial => "shared/user", :locals => { user: @post.user } %>
 </div>
 <div class="col-md-8">
   <div class="card post-card overflow-fix outer-card">

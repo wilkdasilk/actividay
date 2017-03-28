@@ -4,7 +4,9 @@ class UsersController < ApplicationController
 
   #GET users
   def index
-    @users = User.all 
+    redirect_to root_path
+    # under construction
+    @users = User.all
   end
 
   #GET profile

@@ -21,7 +21,6 @@ Rails.application.routes.draw do
   # User routes
   # Why custom registrations? To handle additional user fields: http://jacopretorius.net/2014/03/adding-custom-fields-to-your-devise-user-model-in-rails-4.html
   devise_for :users, :controllers => { registrations: 'registrations', sessions: 'sessions' }
-  get "/users", to: "users#index", as: "users"
   get "/users/:id", to: "users#show", as: "user"
 
   #activites routes
@@ -29,6 +28,6 @@ Rails.application.routes.draw do
   get "/activities/:id", to: "activities#show", as: "activity_show"
 
   #catch-all
-  match "*a", to: 'splash#index', via: :all
+  match "*a", to: 'users#profile', via: :all
 
 end

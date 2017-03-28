@@ -1,10 +1,11 @@
 class UsersController < ApplicationController
 
+
   before_action :authenticate_user!, except: [:profile]
 
   #GET users
   def index
-    @users = User.all 
+    @users = User.all
   end
 
   #GET profile
@@ -19,7 +20,7 @@ class UsersController < ApplicationController
   #GET user is user exists, otherwise redirects home.
   def show
     if User.exists?(params[:id])
-      @user = User.find_by_id(params[:id])
+      @user = User.friendly.find(params[:id])
     else
       redirect_to root_path
     end

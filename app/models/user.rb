@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+  extend FriendlyId
+
   mount_uploader :avatar, AvatarUploader
   validate :avatar_size_validation
   devise :database_authenticatable, :registerable,
@@ -9,6 +11,8 @@ class User < ApplicationRecord
   has_many :challenges
   has_many :activities, :through => :challenges
   has_many :posts, :through => :challenges
+
+  friendly_id :name, use: :slugged
 
   # helpful link: http://stackoverflow.com/questions/5613410/how-to-display-ages-instead-of-dates-of-birth-in-ruby-on-rails
   def age

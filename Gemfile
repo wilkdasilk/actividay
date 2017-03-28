@@ -43,6 +43,8 @@ gem 'zip-codes'
 gem "figaro"
 # Pagination gem
 gem "will_paginate", '~> 3.1.0'
+# pretty urls
+gem 'friendly_id', '~> 5.2'
 
 
 # For use when deploying to heroku

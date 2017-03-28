@@ -1,4 +1,4 @@
-<h3 class="text-center">Recent Unfinished Activities</h3>
+<h3 class="text-center">Recent Unposted Activities</h3>
 <h5 class="text-center">Completed one of these? Post about it!</h5>
 <hr>
 <% @user.challenges.where(status: [:dormant]).order(activity_id: :desc).each do |challenge| %>

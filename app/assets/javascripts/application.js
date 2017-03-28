@@ -36,20 +36,4 @@ $(document).on('turbolinks:load', function(){
     var sizeExceeded = false;
     var extError = false;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 });

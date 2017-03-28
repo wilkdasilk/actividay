@@ -41,17 +41,24 @@ font-family: $heading;
   margin-bottom: 7px;
 }
 
+.outer-card {
+  min-width: 315px;
+}
+
 .card {
   background: rgba(255,255,255,.85);
   padding: 10px;
   border-radius: 2rem;
   margin: .5rem auto;
   box-shadow: 3px 4px 10px rgba(6, 2, 2, 0.26);
-  min-width: 315px;
 }
 
 .card-img-wrapper {
   padding:0;
+}
+
+.align-top {
+  margin-top:0;
 }
 
 .overflow-fix {

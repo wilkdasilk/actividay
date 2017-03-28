@@ -1,7 +1,7 @@
 <h3 class="text-center">Recent Unposted Activities</h3>
 <h5 class="text-center">Completed one of these? Post about it!</h5>
 <hr>
-<% @user.challenges.where(status: [:dormant]).order(activity_id: :desc).each do |challenge| %>
+<% @user.challenges.where("created_at > ?", 3.day.ago).where.not(:status => :not_interested).order(activity_id: :desc).each do |challenge| %>
 <div class="row">
   <div class="col-xs-10">
     <%= challenge.activity.created_at.strftime("%b %d") %> - <%= challenge.activity.title %>

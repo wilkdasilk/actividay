@@ -16,7 +16,7 @@ class ChallengesController < ApplicationController
       @challenge.status = :chosen
       @challenge.save
       respond_to do |format|
-        format.html { redirect_to root_path, notice: "You've accepted a challenge! Go get 'em!'"}
+        format.html { redirect_to root_path, notice: "You've accepted a challenge! Go get 'em!"}
       end
     elsif @challenge.chosen?
       @challenge.status= :unchosen

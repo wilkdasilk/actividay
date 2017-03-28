@@ -25,7 +25,7 @@
       <h5 class="text-center">Completed one of these? Post about it!</h5>
     <% end %>
     <hr>
-    <% @user.challenges.each do |challenge| %>
+    <% @user.challenges.where("created_at > ?", 3.day.ago).where.not(:status => :not_interested).order(activity_id: :desc).each do |challenge| %>
       <div>
         <%= render "challenges", challenge: challenge %>
       </div>

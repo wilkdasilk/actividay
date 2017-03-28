@@ -39,8 +39,6 @@ gem 'carrierwave', '~> 1.0'
 gem 'rmagick'
 #zip-codes for converting zip-codes to cities
 gem 'zip-codes'
-# Figaro for keeping keys secret
-gem "figaro"
 # Pagination gem
 gem "will_paginate", '~> 3.1.0'
 

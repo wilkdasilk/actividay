@@ -134,11 +134,19 @@ font-family: $heading;
   }
 }
 
+.header {
+  color: #000000;
+}
+
 .navbar-bottom {
   background-color: rgba(255,127,80,1);
   position: static;
   bottom:0px;
   margin-top: 50px;
+}
+
+.footer {
+  color: #000000;
 }
 
 // buttons

@@ -3,6 +3,6 @@
 </div>
 <div class="col-md-8">
   <div class="card post-card overflow-fix outer-card">
-    <%= render "post", post: @post %>
+    <%= render :partial => "shared/post", :locals => { post: @post, short: false, link_thru: false  } %>
   </div>
 </div>

@@ -50,11 +50,19 @@ font-family: $heading;
   background: rgba(255,255,255,.85);
   padding: 10px;
   border-radius: 2rem;
-  margin: .5rem auto;
+  margin: 1rem auto;
   box-shadow: 3px 4px 10px rgba(6, 2, 2, 0.26);
 }
 
+.challenge-title {
+  font-style: italic; 
+}
+
 .card-img-wrapper {
+  padding:0;
+}
+
+.align-column {
   padding:0;
 }
 
@@ -88,6 +96,17 @@ font-family: $heading;
 
 .activity-card-all {
   float: left;
+}
+
+.author {
+  position: absolute;
+  left: 30%;
+}
+
+.fit-parent {
+  position: absolute;
+  height: 100%;
+  text-align: center;
 }
 
 .post-card {

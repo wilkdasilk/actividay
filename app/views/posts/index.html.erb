@@ -1,7 +1,9 @@
-<% @posts.each do |post| %>
-  <div class="card post-card overflow-fix outer-card">
-    <%= render "post", post: post %>
-  </div>
-<% end %>
+<div class="col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8">
+  <% @posts.each do |post| %>
+    <div class="card post-card overflow-fix outer-card">
+      <%= render :partial => "shared/post", :locals => { post: post, short: true, link_thru: true  } %>
+    </div>
+  <% end %>
 
-<div class="col-md-12 col-sm-12 col-xs-12 pagination"><%= will_paginate @posts %></div>
+  <div class="col-md-12 col-sm-12 col-xs-12 pagination"><%= will_paginate @posts %></div>
+</div>

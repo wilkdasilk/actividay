@@ -41,10 +41,7 @@ gem 'rmagick'
 gem 'zip-codes'
 # Figaro for keeping keys secret
 gem "figaro"
-
-# Kaminari for pagination
-gem 'kaminari'
-
+# Pagination gem
 gem "will_paginate", '~> 3.1.0'
 
 

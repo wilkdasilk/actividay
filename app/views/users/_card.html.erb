@@ -1,9 +1,11 @@
-<div class="card" >
-  <img class="card-img-top responsive" src= <%= user_img_or_default(user) %> alt="Card image cap">
-  <div class="card-block">
+<div class="card overflow-fix outer-card">
+  <div class="col-md-12 col-md-offset-0 col-sm-4 col-sm-offset-0 col-xs-offset-3 col-xs-6 card-img-wrapper">
+    <img class="card-img-top responsive" src= <%= user_img_or_default(user) %> alt="Card image cap">
+  </div>
+  <div class="card-block col-md-12 col-sm-8 col-xs-12">
     <h4 class="card-title"><%= user.name %></h4>
-    <p class="card-text">Goals: <%= user.goals %></p>
     <ul class="list-group list-group-flush">
+      <li class="list-group-item">Goals: <%= user.goals %></li>
       <li class="list-group-item">Age: <%= user.age %></li>
       <li class="list-group-item">Current City: <%= ZipCodes.identify(user.zip)[:city] %>, <%= ZipCodes.identify(user.zip)[:state_code] %></li>
       <li class="list-group-item">User since: <%= user.created_at.strftime("%B %d, %Y")%></li>

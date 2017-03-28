@@ -41,6 +41,7 @@ gem 'rmagick'
 gem 'zip-codes'
 # Figaro for keeping keys secret
 gem "figaro"
+gem "will_paginate", '~> 3.1.0'
 
 # For use when deploying to heroku
 gem 'rails_12factor', group: :production

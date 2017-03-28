@@ -1,7 +1,11 @@
-<h3><%= link_to post.title, post_path(post) %></h3>
 <% if post.avatar.url.present? %>
-  <div><%= image_tag(post.avatar.url(:profile), class: "responsive") %></div>
+  <div class="col-md-12 col-md-offset-0 col-sm-4 col-sm-offset-0 col-xs-offset-3 col-xs-6 card-img-wrapper">
+    <%= image_tag(post.avatar.url(:profile), class: "responsive") %>
+  </div>
 <% end %>
-<p><%= truncate(post.content, length:140) %></p>
-
-<%= link_to 'Edit', edit_post_path(post) %>
+<div class="col-md-12 col-sm-8 col-xs-12">
+  <h3 ><%= link_to post.title, post_path(post) %></h3>
+  <h6><%= time_ago_in_words post.created_at%> ago</h6>
+  <p><%= truncate(post.content, length:140) %></p>
+  <%= link_to 'Edit', edit_post_path(post) %>
+</div>

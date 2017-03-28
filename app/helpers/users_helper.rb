@@ -5,6 +5,11 @@ module UsersHelper
     user.avatar.url(:profile)
   end
 
+  def user_posts
+    @posts = @user.posts.order(created_at: :desc)
+    @posts = @posts.paginate :page => params[:page] || 1, :per_page => 5
+  end
+
   private
 
   def default_img_url

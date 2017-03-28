@@ -83,6 +83,11 @@ font-family: $heading;
   background-color: $challenge-select;
 }
 
+.challenge-card.posted {
+  color: white;
+  background-color: $post-card;
+}
+
 .challenge-card.unselected {
   color: white;
   background-color: $challenge-unselect;

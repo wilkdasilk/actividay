@@ -1,6 +1,8 @@
 <% if @user.challenges.where(status: [:unchosen, :chosen]).length == 0 %>
+  <img class="img-responsive splash-animation center-block" src="/happy.gif" alt="You did all the things!">
   <h1 class="text-center">Congratulations!</h1>
-  <img class="center-block img-responsive" src="/all_the_things.png" alt="You did all the things!">
+  <h3 class="text-center">You finished all your challenges for the day!</h3>
+  <h3 class="text-center">Check out the <%= link_to "happenings", posts_path, class: "link" %> page to see what other people are up to!</h3>
 <% else %>
 
 

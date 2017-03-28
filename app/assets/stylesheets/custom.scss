@@ -7,6 +7,7 @@ $body-text: "Lato", sans-serif;
 $challenge-unselect: rgba(110, 183, 60, .75);
 $challenge-select: rgba(92,170,39,1);
 $post-card: rgba(153, 134, 109, .9);
+$show-card: rgba(131, 177,204, .9);
 
 /*Layout*/
 
@@ -96,17 +97,18 @@ font-family: $heading;
 
 .challenge {
   color: #000000;
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 .challenge-card.selected {
   color: white;
   background-color: $challenge-select;
+
 }
 
 .challenge-card.posted {
   color: white;
-  background-color: $post-card;
+  background-color: $show-card;
 }
 
 .challenge-card.unselected {
@@ -135,10 +137,6 @@ font-family: $heading;
   }
 }
 
-.header {
-  color: #000000;
-}
-
 .navbar-bottom {
   background-color: rgba(255,127,80,1);
   position: static;
@@ -146,8 +144,9 @@ font-family: $heading;
   margin-top: 50px;
 }
 
-.footer {
+.link {
   color: #000000;
+  text-decoration: none !important;
 }
 
 // buttons
@@ -203,7 +202,7 @@ font-family: $heading;
   padding-right: 15px;
 }
 
-.choice-button a:link, .choice-button a:visited, .choice-button a:hover, .choice-button a:active {
+.choice-button {
   text-decoration: none;
   position: relative;
   float: right;

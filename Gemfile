@@ -44,6 +44,8 @@ gem "figaro"
 # Pagination gem
 gem "will_paginate", '~> 3.1.0'
 
+gem 'sendgrid-ruby'
+
 
 # For use when deploying to heroku
 gem 'rails_12factor', group: :production

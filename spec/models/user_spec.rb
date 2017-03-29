@@ -67,4 +67,9 @@ RSpec.describe User, type: :model do
     expect(subject).to_not be_valid
   end
 
+  it "calculates age" do
+    subject.born_on = DateTime.now
+    expect(subject.age).instance_of? Date
+  end
+
 end

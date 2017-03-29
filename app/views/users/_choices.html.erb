@@ -28,14 +28,14 @@
   <% if challenge.chosen? %>
   <div class="choice-button challenge-action">
     <%= link_to new_post_path(challenge: challenge.id), method: "get", class: "link challenge" do %>
-      <h4>Post about it <span class="glyphicon glyphicon-edit" aria-hidden="true"></span></h4>
+      <h4>Post About It <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></h4>
     <% end %>
   </div>
   <% elsif challenge.posted? %>
     <div class="choice-button">
-      <h4><%= link_to "Delete Post", post_path(challenge.post), method: "delete", class: "link", data: { confirm: "Are you sure you want to delete that post?" } %>
-        <%= link_to image_tag("/not_interested.png", {:alt => "not interested", :class=>"not-interested"}), post_path(challenge.post), method: "delete", data: { confirm: "Are you sure you want to delete that post?" } %>
-      </h4>
+      <%= link_to post_path(challenge.post), method: "delete", class: "link", data: { confirm: "Are you sure you want to delete that post?" } do %>
+        <h4>Delete Post <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span></h4>
+      <% end %>
     </div>
     <div class="choice-button">
       <h4><%= link_to "Read Your Post", post_path(challenge.post), method: "get", class: "link" %>
@@ -45,7 +45,7 @@
   <% else %>
   <div class="choice-button challenge-action">
     <%= link_to not_interested_challenge_path(challenge), method: "put", data: { confirm: "Click 'OK' if you never want this activity listed again."}, class: "challenge" do %>
-      <h4>Not interested <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span></h4>
+      <h4>Not Interested <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span></h4>
     <% end %>
   </div>
   <% end %>

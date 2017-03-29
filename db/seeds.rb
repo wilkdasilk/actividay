@@ -100,7 +100,7 @@ description: "Sign up for a free Flickr account, then upload some of your most i
 Activity.create!(title: "Start a blog on a topic that interests you.",
 description: "You can get a free blog using WordPress or Blogger. Join such a service and start a blog on a topic that interests you. Not only can it be a ton of fun, it also helps you improve your communication skills, reach out to others, and perhaps earn a bit of income down the road as well.")
 
-Activity.create!(title: "Visit a free museum or a zoo (or find out when you might be able to get in for free).",
+Activity.create!(title: "Visit a free museum or a zoo.",
 description: "Many cities and colleges have free educational attractions, such as museums or zoos. Make an effort to enjoy these free attractions.")
 
 Activity.create!(title: "Learn the basics of a new topic.",
@@ -283,7 +283,7 @@ description: "Most of us have some works of writing or film that simply resonate
 Activity.create!(title: "Build a cardboard castle.",
 description: "Stop by an appliance store and ask if they have any extra appliance boxes you can take home, then flatten them and load up your vehicle When you get home, use them to build a giant cardboard castle in your living room or in your backyard. Cut out doors and windows, and attach multiple boxes together to make rooms. This can be a great afternoon of fun for free!")
 
-Activity.create!(title: "Dig an old video game console out of the closet and play some of your favorites.",
+Activity.create!(title: "Dig an old video game console out of the closet.",
 description: "A lot of families have old video game consoles in the closet - an ancient PlayStation or Super Nintendo, long forgotten about, with a controller and a few games. Dig out that old console and hook it up to a television, then relive some of the memories of the games you used to play for hours.")
 
 Activity.create!(title: "Do some amateur stargazing.",

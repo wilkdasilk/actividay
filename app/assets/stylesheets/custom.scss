@@ -13,8 +13,8 @@ $show-card: rgba(131, 177,204, .9);
 
 
 body {
-  background-color: rgb(255,127,80);
-  background: url("/background.png");
+  background-color: cornsilk;
+  //background: url("/background.png");
   background-repeat: no-repeat;
   background-size: 100% 100%;
   font-family: $body-text;
@@ -22,6 +22,7 @@ body {
 
 #logo {
   width: 30vw;
+  margin-top: 2%;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -149,6 +150,9 @@ font-family: $heading;
 .navbar-nav {
   width: 100%;
   text-align: center;
+  background-color: coral;
+  margin:7.5px 0;
+
    li {
     font-size: 17px;
     float: none;

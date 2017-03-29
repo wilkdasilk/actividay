@@ -12,7 +12,7 @@
       <hr>
       <% @user.challenges.where("created_at > ?", 3.day.ago).where.not(:status => :not_interested).order(activity_id: :desc).each do |challenge| %>
         <div>
-          <%= render "challenges", challenge: challenge %>
+          <%= render :partial => "shared/challenges", :locals =>{ challenge: challenge } %>
         </div>
       <% end %>
     </div>

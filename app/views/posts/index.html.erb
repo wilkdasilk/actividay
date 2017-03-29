@@ -1,9 +1,25 @@
-<div class="col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8">
+<div class="col-md-8 col-sm-8">
   <% @posts.each do |post| %>
     <div class="card post-card overflow-fix outer-card">
       <%= render :partial => "shared/post", :locals => { post: post, short: true, link_thru: true  } %>
     </div>
   <% end %>
-
   <div class="col-md-12 col-sm-12 col-xs-12 pagination"><%= will_paginate @posts %></div>
+</div>
+
+<div class="col-md-4 align-column">
+  <div class="col-md-12">
+    <div class="card outer-card">
+      <h3 class="text-center">Recent Challenges</h3>
+      <% if current_user == @user %>
+        <h5 class="text-center">Completed one of these? Post about it!</h5>
+      <% end %>
+      <hr>
+      <% current_user.challenges.where("created_at > ?", 3.day.ago).where.not(:status => :not_interested).order(activity_id: :desc).each do |challenge| %>
+        <div>
+          <%= render :partial => "shared/challenges", :locals =>{ challenge: challenge } %>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>

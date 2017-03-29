@@ -4,7 +4,9 @@ class Challenge < ApplicationRecord
   belongs_to :activity
   has_one :post
 
-  delegate :title, to: :activity, prefix: true
+  validates_presence_of :user
+  validates_presence_of :activity
 
+  delegate :title, to: :activity, prefix: true
 
 end

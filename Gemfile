@@ -27,6 +27,10 @@ gem 'turbolinks', '~> 5'
 
 gem 'bootstrap-sass'
 
+gem 'validates_timeliness', '~> 4.0'
+
+gem 'date_validator'
+
 gem 'jquery-turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
@@ -47,12 +51,20 @@ gem 'friendly_id', '~> 5.2'
 gem 'sendgrid-ruby'
 
 
+
 # For use when deploying to heroku
 gem 'rails_12factor', group: :production
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'rspec-rails', '~> 3.5'
+  gem 'factory_girl_rails'
+  gem 'capybara'
+  gem 'guard-rspec'
+  gem 'spring-commands-rspec'
+  gem 'vcr'
+  gem 'rails-controller-testing'
 end
 
 group :development do

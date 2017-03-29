@@ -1,50 +1,39 @@
 <h2 class="text-center">Create an account</h2>
+<p>All fields required </p>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
   <div class="field form-group">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, required: true, class: "form-control" %>
+    <%= f.text_field :name, autofocus: true, required: true, class: "form-control", placeholder: "What's your name?" %>
   </div>
 
   <div class="field form-group">
-    <%= f.label :born_on %><br />
-    <%= f.date_select :born_on, start_year: Time.zone.now.year - 120, end_year: (Time.zone.now.year + 1), order: [:month, :day, :year], prompt: true, required: true, class: "form-control" %>
+    <%= f.text_field :goals, required: true, class: "form-control", placeholder: "What are your goals?" %>
   </div>
 
   <div class="field form-group">
-    <%= f.label :goals %><br />
-    <%= f.text_field :goals, required: true, class: "form-control" %>
+    <%= f.number_field :zip, required: true, class: "form-control", placeholder: "What's your zipcode?" %>
   </div>
 
   <div class="field form-group">
-    <%= f.label :zip %><br />
-    <%= f.number_field :zip, required: true, class: "form-control" %>
+    <%= f.email_field :email, class: "form-control", placeholder: "What's your e-mail?" %>
   </div>
 
   <div class="field form-group">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, class: "form-control" %>
+    <%= f.label :birthday %>
+    <%= f.date_select :born_on, end_year: Time.zone.now.year - 120, start_year: (Time.zone.now.year + 1), order: [:month, :day, :year], prompt: true, required: true, class: "form-control" %>
   </div>
 
   <div class="field form-group">
-    <%= f.label :avatar %><br />
-    <%= f.file_field :avatar, class: "form-control", onchange: "validateFiles(this);",
-    data: { max_file_size: 5.megabytes }  %>
-  </div>
-
-  <div class="field form-group">
-    <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+    <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Choose your password" %>
   </div>
 
   <div class="field form-group">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+    <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "Confirm your password" %>
   </div>
 
   <div class="actions">

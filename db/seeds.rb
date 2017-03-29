@@ -9,6 +9,8 @@ Post.delete_all
 
 User.delete_all
 
+Challenge.delete_all
+
 User.create!(
                 name: "Auston",
                 born_on: Date.new(1992,4,16),

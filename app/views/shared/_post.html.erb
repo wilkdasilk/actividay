@@ -1,0 +1,34 @@
+<div class="col-md-2 col-sm-1 col-xs-2 fit-parent">
+  <div class="author">
+    <div><%= owner_avatar_or_default(post) %></div>
+    <% if post.user == current_user %>
+      <div><%= link_to "You", user_path(post.challenge.user), class: "link" %></div>
+    <% else %>
+      <div><%= link_to post.challenge.user.name, user_path(post.challenge.user), class: "link" %></div>
+    <% end %>
+  </div>
+</div>
+<div class="col-md-offset-2 col-md-10 col-sm-offset-1 col-sm-11 col-xs-offset-2 col-xs-10">
+  <div class="col-sm-8 col-xs-12">
+    <% if link_thru %>
+      <h3 class="align-top"><%= link_to post.title, post_path(post), class: "link" %></h3>
+    <% else %>
+      <h3 class="align-top"><%= post.title %></h3>
+    <% end %>
+    <h6 class="align-top challenge-title"><%= post.challenge.activity.title %></h6>
+    <h6> <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+      <%= time_ago_in_words post.created_at%> ago
+    </h6>
+    <% if short %>
+      <p><%= truncate(post.content, length:140) %></p>
+    <% else %>
+      <p><%= post.content %></p>
+    <% end %>
+    <%= link_to 'Edit', edit_post_path(post), class: "link" if current_user == post.challenge.user %>
+  </div>
+  <% if post.avatar.url.present? %>
+    <div class="col-sm-4 col-sm-offset-0 col-xs-offset-3 col-xs-6 card-img-wrapper">
+      <%= image_tag(post.avatar.url(:profile), class: "responsive") %>
+    </div>
+  <% end %>
+</div>

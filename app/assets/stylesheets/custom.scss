@@ -13,8 +13,8 @@ $show-card: rgba(131, 177,204, .9);
 
 
 body {
-  background-color: rgb(255,127,80);
-  background: url("/background.png");
+  background-color: cornsilk;
+  //background: url("/background.png");
   background-repeat: no-repeat;
   background-size: 100% 100%;
   font-family: $body-text;
@@ -22,6 +22,7 @@ body {
 
 #logo {
   width: 30vw;
+  margin-top: 2%;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -50,12 +51,20 @@ font-family: $heading;
   background: rgba(255,255,255,.85);
   padding: 10px;
   border-radius: 2rem;
-  margin: .5rem auto;
+  margin: 1rem auto;
   box-shadow: 3px 4px 10px rgba(6, 2, 2, 0.26);
+}
+
+.challenge-title {
+  font-style: italic;
 }
 
 .card-img-wrapper {
   padding:0;
+}
+
+.align-column {
+  padding-left:0;
 }
 
 .align-top {
@@ -90,6 +99,17 @@ font-family: $heading;
   float: left;
 }
 
+.author {
+  position: absolute;
+  left: 30%;
+}
+
+.fit-parent {
+  position: absolute;
+  height: 100%;
+  text-align: center;
+}
+
 .post-card {
   color: white;
   background-color: $post-card;
@@ -120,6 +140,15 @@ font-family: $heading;
   color: white;
 }
 
+.glyphicon-ban-circle {
+  color: red;
+}
+
+.glyphicon-plus {
+  color: blue;
+
+}
+
 /* navigation */
 
 #login-nav {
@@ -130,6 +159,9 @@ font-family: $heading;
 .navbar-nav {
   width: 100%;
   text-align: center;
+  background-color: coral;
+  margin:7.5px 0;
+
    li {
     font-size: 17px;
     float: none;
@@ -174,8 +206,8 @@ font-family: $heading;
 }
 
 .arrows {
-  width: 50px;
-  height: 100%;
+  width: 40px;
+  height: 80%;
   padding-right: 15px;
 }
 
@@ -197,8 +229,7 @@ font-family: $heading;
   padding: 0 10px 0 10px;
 }
 
-.not-interested {
-  width: 50px;
+.challenge-action {
   padding-right: 15px;
 }
 

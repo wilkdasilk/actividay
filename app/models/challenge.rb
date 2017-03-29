@@ -7,4 +7,6 @@ class Challenge < ApplicationRecord
   validates_presence_of :user
   validates_presence_of :activity
 
+  delegate :title, to: :activity, prefix: true
+
 end

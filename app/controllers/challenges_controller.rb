@@ -1,6 +1,6 @@
 class ChallengesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_challenge, only: [:show, :update, :destroy, :build_post, :not_interested]
+  before_action :set_challenge, only: [:show, :update, :destroy, :not_interested]
   before_action :challenge_owner?, only: [:update, :destroy]
   # GET /challenges/1
   def show
@@ -36,16 +36,6 @@ class ChallengesController < ApplicationController
     end
   end
 
-  # creates a new post for a challenge then pasts that post to the posts controller.
-  def build_post
-    if !@challenge.post
-      @challenge.build_post
-      @challenge.status = :posted
-      @challenge.save
-    end
-    redirect_to edit_post_path(@challenge.post)
-  end
-
   private
 
     #Sets the challenge if the challenge exists, otherwise redirects home.
@@ -64,7 +54,7 @@ class ChallengesController < ApplicationController
 
     #determines if the challenge is owned by the current_user
     def challenge_owner?
-      if current_user = @challenge.user
+      if current_user == @challenge.user
         true
       else
         flash[:notice] = "That's not your challenge!"

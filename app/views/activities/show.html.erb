@@ -1,2 +1,3 @@
-
-<%= render "activity", activity: @activity %>
+<div class="card activity-card col-md-8 col-md-offset-2 col-xs-12">
+  <%= render :partial => "shared/activity", :locals => {activity: @activity} %>
+</div>

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get "/welcome", to: "splash#index", as: "splash"
 
   #posts routes
+  get "/posts/new", to: "posts#new", as: "new_post"
   resources :posts, except: [:new]
 
   #challenges routes with an extra patch/put for posting.
@@ -15,8 +16,6 @@ Rails.application.routes.draw do
       put :not_interested
     end
   end
-
-  get "/challenges/:id/new", to: "challenges#build_post", as: "new_post"
 
   # User routes
   # Why custom registrations? To handle additional user fields: http://jacopretorius.net/2014/03/adding-custom-fields-to-your-devise-user-model-in-rails-4.html

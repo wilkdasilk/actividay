@@ -1,6 +1,6 @@
 class ChallengesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_challenge, only: [:show, :update, :destroy, :build_post, :not_interested]
+  before_action :set_challenge, only: [:show, :update, :destroy, :not_interested]
   before_action :challenge_owner?, only: [:update, :destroy]
   # GET /challenges/1
   def show
@@ -34,16 +34,6 @@ class ChallengesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to root_path, notice: "Ok, you won't see it again!!"}
     end
-  end
-
-  # creates a new post for a challenge then pasts that post to the posts controller.
-  def build_post
-    if !@challenge.post
-      @challenge.build_post
-      @challenge.status = :posted
-      @challenge.save
-    end
-    redirect_to edit_post_path(@challenge.post)
   end
 
   private

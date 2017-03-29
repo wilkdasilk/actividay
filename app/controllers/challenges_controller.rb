@@ -1,7 +1,7 @@
 class ChallengesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_challenge, only: [:show, :update, :destroy, :not_interested]
-  before_action :challenge_owner?, only: [:update, :destroy]
+  before_action :challenge_owner?, only: [:update, :not_interested, :destroy]
   # GET /challenges/1
   def show
   end

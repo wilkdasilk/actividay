@@ -20,134 +20,65 @@ require 'rails_helper'
 
 RSpec.describe ChallengesController, type: :controller do
 
-  describe "anonymous user" do
-    before :each do
-      login_with nil
-    end
-
-    it "should be redirected to signing" do
-      get :index
-      expect( response ).to redirect_to( new_user_session_path )
-    end
-  end
-
-  describe "GET #index" do
-    it "assigns all challenges as @challenges" do
-      challenge = Challenge.create! valid_attributes
-      get :index, params: {}, session: valid_session
-      expect(assigns(:challenges)).to eq([challenge])
-    end
-  end
-
   describe "GET #show" do
     it "assigns the requested challenge as @challenge" do
-      challenge = Challenge.create! valid_attributes
-      get :show, params: {id: challenge.to_param}, session: valid_session
+      login_with create( :user )
+      challenge = create( :challenge, user: subject.current_user )
+      get :show, params: {id: challenge.to_param}
       expect(assigns(:challenge)).to eq(challenge)
     end
   end
 
-  describe "GET #new" do
-    it "assigns a new challenge as @challenge" do
-      get :new, params: {}, session: valid_session
-      expect(assigns(:challenge)).to be_a_new(Challenge)
-    end
-  end
-
-  describe "GET #edit" do
-    it "assigns the requested challenge as @challenge" do
-      challenge = Challenge.create! valid_attributes
-      get :edit, params: {id: challenge.to_param}, session: valid_session
-      expect(assigns(:challenge)).to eq(challenge)
-    end
-  end
-
-  describe "POST #create" do
-    context "with valid params" do
-      it "creates a new Challenge" do
-        expect {
-          post :create, params: {challenge: valid_attributes}, session: valid_session
-        }.to change(Challenge, :count).by(1)
-      end
-
-      it "assigns a newly created challenge as @challenge" do
-        post :create, params: {challenge: valid_attributes}, session: valid_session
-        expect(assigns(:challenge)).to be_a(Challenge)
-        expect(assigns(:challenge)).to be_persisted
-      end
-
-      it "redirects to the created challenge" do
-        post :create, params: {challenge: valid_attributes}, session: valid_session
-        expect(response).to redirect_to(Challenge.last)
-      end
-    end
-
-    context "with invalid params" do
-      it "assigns a newly created but unsaved challenge as @challenge" do
-        post :create, params: {challenge: invalid_attributes}, session: valid_session
-        expect(assigns(:challenge)).to be_a_new(Challenge)
-      end
-
-      it "re-renders the 'new' template" do
-        post :create, params: {challenge: invalid_attributes}, session: valid_session
-        expect(response).to render_template("new")
-      end
+  describe "PUT #not_intereseted" do
+    it "updates the requested challenge to be not_interested" do
+      login_with create( :user )
+      challenge = create( :challenge, user: subject.current_user )
+      put :not_interested, params: {id: challenge.to_param}
+      challenge.reload
+      expect(challenge.not_interested?).to eq(true)
     end
   end
 
   describe "PUT #update" do
-    context "with valid params" do
-      let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
-      }
-
-      it "updates the requested challenge" do
-        challenge = Challenge.create! valid_attributes
-        put :update, params: {id: challenge.to_param, challenge: new_attributes}, session: valid_session
-        challenge.reload
-        skip("Add assertions for updated state")
-      end
-
-      it "assigns the requested challenge as @challenge" do
-        challenge = Challenge.create! valid_attributes
-        put :update, params: {id: challenge.to_param, challenge: valid_attributes}, session: valid_session
-        expect(assigns(:challenge)).to eq(challenge)
-      end
-
-      it "redirects to the challenge" do
-        challenge = Challenge.create! valid_attributes
-        put :update, params: {id: challenge.to_param, challenge: valid_attributes}, session: valid_session
-        expect(response).to redirect_to(challenge)
-      end
-    end
-
-    context "with invalid params" do
-      it "assigns the challenge as @challenge" do
-        challenge = Challenge.create! valid_attributes
-        put :update, params: {id: challenge.to_param, challenge: invalid_attributes}, session: valid_session
-        expect(assigns(:challenge)).to eq(challenge)
-      end
-
-      it "re-renders the 'edit' template" do
-        challenge = Challenge.create! valid_attributes
-        put :update, params: {id: challenge.to_param, challenge: invalid_attributes}, session: valid_session
-        expect(response).to render_template("edit")
-      end
+    it "updates the requested challenge to be chosen" do
+      login_with create( :user )
+      challenge = create( :challenge, user: subject.current_user )
+      put :update, params: {id: challenge.to_param}
+      challenge.reload
+      expect(challenge.chosen?).to eq(true)
     end
   end
 
-  describe "DELETE #destroy" do
-    it "destroys the requested challenge" do
-      challenge = Challenge.create! valid_attributes
-      expect {
-        delete :destroy, params: {id: challenge.to_param}, session: valid_session
-      }.to change(Challenge, :count).by(-1)
+  describe "PUT #update" do
+    it "updates the requested challenge to be chosen" do
+      login_with create( :user )
+      challenge = create( :challenge, user: subject.current_user )
+      challenge.status = "chosen"
+      challenge.save
+      put :update, params: {id: challenge.to_param}
+      challenge.reload
+      expect(challenge.unchosen?).to eq(true)
     end
+  end
 
-    it "redirects to the challenges list" do
-      challenge = Challenge.create! valid_attributes
-      delete :destroy, params: {id: challenge.to_param}, session: valid_session
-      expect(response).to redirect_to(challenges_url)
+  describe "PUT #update" do
+    it "updates the requested challenge to be chosen" do
+      login_with create( :user )
+      challenge = create( :challenge, user: subject.current_user )
+      challenge.status = "posted"
+      challenge.save
+      put :update, params: {id: challenge.to_param}
+      challenge.reload
+      expect( response ).to redirect_to( root_path )
+    end
+  end
+
+  describe "tests owner" do
+    it "determines if the current user is the owner of the challenge" do
+      login_with create( :user )
+      challenge = create( :challenge )
+      put :update, params: {id: challenge.to_param}
+      expect( response ).to redirect_to( challenge_path(challenge) )
     end
   end
 

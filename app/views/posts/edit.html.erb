@@ -1,4 +1,13 @@
-<div class="card">
+<div class="col-md-6 col-sm-6 align-column">
+  <div class="card outer-card overflow-fix">
+    <%= render :partial => "shared/activity", :locals => { activity: @challenge.activity }%>
+  </div>
+</div>
+
+<div class="card col-md-6 col-sm-6 col-sm-offset-3 outer-card">
   <h1 class="text-center">Your Post</h1>
   <%= render 'form', post: @post %>
+  <div class="center">
+    <%= button_to 'Delete', { controller: :posts, action: :destroy, id: @post.id }, method: :delete, class: "red btn" %>
+  </div>
 </div>

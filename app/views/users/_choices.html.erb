@@ -26,27 +26,27 @@
         </div>
   <% end %>
   <% if challenge.chosen? %>
-  <div class="choice-button">
-    <h4><%= link_to "Post About It", new_post_path(challenge.id), method: "get", class: "link" %>
-      <%= link_to image_tag("/arrows.png", {:class=>"arrows", :alt => "post",}), new_post_path(challenge.id) %>
-    </h4>
+  <div class="choice-button challenge-action">
+    <%= link_to new_post_path(challenge: challenge.id), method: "get", class: "link challenge" do %>
+      <h4>Post About It <span class="glyphicon glyphicon-plus arrows" aria-hidden="true"></span></h4>
+    <% end %>
   </div>
   <% elsif challenge.posted? %>
     <div class="choice-button">
-      <h4><%= link_to "Delete Post", post_path(challenge.post), method: "delete", class: "link", data: { confirm: "Are you sure you want to delete that post?" } %>
-        <%= link_to image_tag("/not_interested.png", {:alt => "not interested", :class=>"not-interested"}), post_path(challenge.post), method: "delete", data: { confirm: "Are you sure you want to delete that post?" } %>
-      </h4>
+      <%= link_to post_path(challenge.post), method: "delete", class: "link", data: { confirm: "Are you sure you want to delete that post?" } do %>
+        <h4>Delete Post <span class="glyphicon glyphicon-ban-circle arrows" aria-hidden="true"></span></h4>
+      <% end %>
     </div>
     <div class="choice-button">
-      <h4><%= link_to "Read Your Post", post_path(challenge.post), method: "get", class: "link" %>
+      <h4><%= link_to "Your Post", post_path(challenge.post), method: "get", class: "link" %>
         <%= link_to image_tag("/arrows.png", {:class=>"arrows", :alt => "post",}), post_path(challenge.post) %>
       </h4>
     </div>
   <% else %>
-  <div class="choice-button">
-    <h4><%= link_to "Remove Forever", not_interested_challenge_path(challenge), method: "put", class: "link", data: { confirm: "Click 'OK' if you never want this activity listed again." } %>
-      <%= link_to image_tag("/not_interested.png", {:alt => "not interested", :class=>"not-interested"}), not_interested_challenge_path(challenge), method: "put", data: { confirm: "Click 'OK' if you never want this activity listed again." } %>
-    </h4>
+  <div class="choice-button challenge-action">
+    <%= link_to not_interested_challenge_path(challenge), method: "put", data: { confirm: "Click 'OK' if you never want this activity listed again."}, class: "challenge" do %>
+      <h4>Not Interested <span class="glyphicon glyphicon-ban-circle arrows" aria-hidden="true"></span></h4>
+    <% end %>
   </div>
   <% end %>
   <% end %>

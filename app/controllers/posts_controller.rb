@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_challenge, only: [:new, :edit]
   before_action :post_owner?, only: [:edit, :update, :destroy]
 
   # GET /posts
@@ -9,9 +10,28 @@ class PostsController < ApplicationController
     @posts = @posts.paginate :page => params[:page] || 1, :per_page => 10
   end
 
+  def new
+    @post= Post.new
+  end
+
+  def create
+    challenge_id = params[:post][:challenge_id]
+    @challenge = Challenge.find_by_id(challenge_id)
+    @challenge.post = Post.create(post_params)
+    @challenge.status = :posted
+    respond_to do |format|
+      if @challenge.save
+        format.html { redirect_to @challenge.post, notice: 'Post was successfully saved.' }
+      else
+        format.html { render :new }
+      end
+    end
+  end
+
   # GET /posts/1
   def show
   end
+
 
   # GET /posts/1/edit
   def edit
@@ -49,6 +69,17 @@ class PostsController < ApplicationController
       end
     end
 
+    def set_challenge
+      if @post
+        @challenge = @post.challenge
+      else
+        challenge_id = params[:challenge]
+        @challenge = Challenge.find_by_id(challenge_id)
+        return @challenge if my_challenges.include?(@challenge)
+        redirect_to root_path
+      end
+    end
+
     # Whitelisted parameters
     def post_params
       params.require(:post).permit(:title, :content, :avatar, :avatar_cache, :remove_avatar)
@@ -56,12 +87,16 @@ class PostsController < ApplicationController
 
     # Checks to see if the post is owned by the current_user
     def post_owner?
-      if current_user = @post.challenge.user
+      if current_user == @post.challenge.user
         true
       else
         flash[:notice] = "That's not yours!"
         redirect_to post_path(@post)
       end
+    end
+
+    def my_challenges
+      current_user.challenges.where("created_at > ?", 3.day.ago).where.not(:status => :not_interested, :status => :posted).order(activity_id: :desc)
     end
 
 end

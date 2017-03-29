@@ -10,8 +10,8 @@
   </div>
 
   <div class="field form-group">
-    <%= f.label :born_on %><br />
-    <%= f.date_select :born_on, start_year: Time.zone.now.year - 120, end_year: (Time.zone.now.year + 1), order: [:month, :day, :year], required: true, class: "form-control" %>
+    <%= f.label :birthday %><br />
+    <%= f.date_select :born_on, end_year: Time.zone.now.year - 120, start_year: (Time.zone.now.year + 1), order: [:month, :day, :year], required: true, class: "form-control" %>
   </div>
 
   <div class="field form-group">
@@ -35,14 +35,14 @@
       <div class="checkbox">
         <%= f.label :remove_avatar do %>
           <%= f.check_box :remove_avatar %>
-          Remove avatar
+          Remove profile photo
         <% end %>
       </div>
     </div>
   <% end  %>
 
   <div class="field form-group">
-    <%= f.label :avatar %><br />
+    <%= f.label :profile_photo %><br />
     <%= f.file_field :avatar, class: "form-control", onchange: "validateFiles(this);",
     data: { max_file_size: 5.megabytes } %>
   </div>

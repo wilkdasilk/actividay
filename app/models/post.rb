@@ -1,16 +1,20 @@
 class Post < ApplicationRecord
 
+  extend FriendlyId
+
   mount_uploader :avatar, AvatarUploader
   validate :avatar_size_validation
 
   validates :challenge_id, presence: true
   validates_presence_of :title, :content, on: :update
-  validates :title, length: {maximum: 255}
+  validates :title, length: {maximum: 75}
   validates :content, length: {maximum: 1000}
 
   belongs_to :challenge
   has_one :user, :through => :challenge
   has_one :activity, :through => :challenge
+
+  friendly_id :title, use: :slugged
 
   private
 

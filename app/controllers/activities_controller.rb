@@ -14,8 +14,8 @@ class ActivitiesController < ApplicationController
 
   #If the activity exists, it sets it as the instance variable, otherwise it redirects to all activities.
   def set_activities
-    if Activity.exists?(params[:id])
-      @activity = Activity.find(params[:id])
+    if Activity.friendly.exists?(params[:id])
+      @activity = Activity.friendly.find(params[:id])
     else
       redirect_to activities_path
     end

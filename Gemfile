@@ -27,6 +27,10 @@ gem 'turbolinks', '~> 5'
 
 gem 'bootstrap-sass'
 
+gem 'validates_timeliness', '~> 4.0'
+
+gem 'date_validator'
+
 gem 'jquery-turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'

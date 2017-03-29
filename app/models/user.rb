@@ -14,6 +14,12 @@ class User < ApplicationRecord
 
   friendly_id :name, use: :slugged
 
+  validates :name, :goals, :born_on, :zip, :email, :password, presence: true
+  validates :goals, length: {maximum: 255}
+  validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }
+  validates_datetime :born_on, date: true
+  validates :born_on, date: { before: DateTime.now }
+
   # helpful link: http://stackoverflow.com/questions/5613410/how-to-display-ages-instead-of-dates-of-birth-in-ruby-on-rails
   def age
     today = Date.today
@@ -26,6 +32,10 @@ class User < ApplicationRecord
   # source: http://stevenyue.com/blogs/validate-attachment-file-size-and-type-in-rails/
   def avatar_size_validation
     errors[:avatar] << "should be less than 5MB" if avatar.size > 5.megabytes
+  end
+
+  def not_string
+      errors[:born_on] << "How did you do that?" if born_on.instance_of? String
   end
 
 end

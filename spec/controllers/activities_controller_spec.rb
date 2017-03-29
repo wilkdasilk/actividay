@@ -23,20 +23,27 @@ RSpec.describe ActivitiesController, type: :controller do
   # This should return the minimal set of attributes required to create a valid
   # Activity. As you add validations to Activity, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) {
-    skip({title: "title"
-        description: "description"})
-  }
 
-  let(:invalid_attributes) {
-    skip({title: "title"
-        description: "description"})
-      }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # ActivitiesController. Be sure to keep this updated too.
-  let(:valid_session) { {} }
+  describe "anonymous user" do
+    before :each do
+      login_with nil
+    end
+
+    it "should be redirected to signing" do
+      get :index
+      expect( response ).to redirect_to( new_user_session_path )
+    end
+  end
+
+  it "should let a user see all the posts" do
+    login_with create( :user )
+    get :index
+    expect( response ).to render_template( :index )
+  end
 
   describe "GET #index" do
     it "assigns all activities as @activities" do

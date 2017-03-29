@@ -20,21 +20,16 @@ require 'rails_helper'
 
 RSpec.describe ChallengesController, type: :controller do
 
-  # This should return the minimal set of attributes required to create a valid
-  # Challenge. As you add validations to Challenge, be sure to
-  # adjust the attributes here as well.
-  let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
-  }
+  describe "anonymous user" do
+    before :each do
+      login_with nil
+    end
 
-  let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
-  }
-
-  # This should return the minimal set of values that should be in the session
-  # in order to pass any filters (e.g. authentication) defined in
-  # ChallengesController. Be sure to keep this updated too.
-  let(:valid_session) { {} }
+    it "should be redirected to signing" do
+      get :index
+      expect( response ).to redirect_to( new_user_session_path )
+    end
+  end
 
   describe "GET #index" do
     it "assigns all challenges as @challenges" do

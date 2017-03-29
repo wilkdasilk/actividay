@@ -23,13 +23,18 @@ RSpec.describe UsersController, type: :controller do
   # This should return the minimal set of attributes required to create a valid
   # User. As you add validations to User, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
-  }
+  describe "anonymous user" do
+    before :each do
+      login_with nil
+    end
 
-  let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
-  }
+    it "should be redirected to signing" do
+      get :index
+      expect( response ).to redirect_to( new_user_session_path )
+    end
+  end
+
+  
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in

@@ -13,7 +13,7 @@ $show-card: rgba(131, 177,204, .9);
 
 
 body {
-  background-color: cornsilk;
+  background-color: white;
   //background: url("/background.png");
   background-repeat: no-repeat;
   background-size: 100% 100%;
@@ -159,7 +159,7 @@ font-family: $heading;
 .navbar-nav {
   width: 100%;
   text-align: center;
-  background-color: coral;
+  background-color: #9FE56F;
   margin:7.5px 0;
 
    li {
@@ -170,10 +170,15 @@ font-family: $heading;
 }
 
 .navbar-bottom {
-  background-color: rgba(255,127,80,1);
+  background-color: #9FE56F;
   position: static;
   bottom:0px;
   margin-top: 50px;
+}
+
+.nav-item {
+  min-width: 15rem;
+  padding: 0;
 }
 
 .link {
@@ -222,7 +227,7 @@ font-family: $heading;
   z-index: 100;
   padding: 7px;
   border-radius: 2rem;
-  background-color: rgba(245,120,67,.75);
+  background-color: #9FE56F;
 }
 
 .recent-post {

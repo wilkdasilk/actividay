@@ -1,10 +1,15 @@
 <div class="col-md-2 col-sm-1 col-xs-2 fit-parent">
   <div class="author">
-    <div><%= owner_avatar_or_default(post) %></div>
     <% if post.user == current_user %>
-      <div><%= link_to "You", user_path(post.challenge.user), class: "link" %></div>
+      <%= link_to user_path(post.challenge.user), class: "link" do %>
+        <div><%= owner_avatar_or_default(post) %></div>
+        <div class="link">You</div>
+      <% end %>
     <% else %>
-      <div><%= link_to post.challenge.user.name, user_path(post.challenge.user), class: "link" %></div>
+      <%= link_to user_path(post.challenge.user), class: "link" do %>
+        <div><%= owner_avatar_or_default(post) %></div>
+        <div class="link"><%= post.challenge.user.name %></div>
+      <% end %>
     <% end %>
   </div>
 </div>

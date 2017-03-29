@@ -85,7 +85,7 @@ class PostsController < ApplicationController
 
     # Checks to see if the post is owned by the current_user
     def post_owner?
-      if current_user = @post.challenge.user
+      if current_user == @post.challenge.user
         true
       else
         flash[:notice] = "That's not yours!"

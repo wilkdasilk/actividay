@@ -54,7 +54,7 @@ class ChallengesController < ApplicationController
 
     #determines if the challenge is owned by the current_user
     def challenge_owner?
-      if current_user = @challenge.user
+      if current_user == @challenge.user
         true
       else
         flash[:notice] = "That's not your challenge!"

@@ -33,7 +33,7 @@ RSpec.describe User, type: :model do
   end
 
   it "is not valid with born_on future" do
-    subject.born_on = DateTime.now+2.year
+    subject.born_on = DateTime.new(2020, 1, 1)
     expect(subject).to_not be_valid
   end
 
@@ -68,8 +68,8 @@ RSpec.describe User, type: :model do
   end
 
   it "calculates age" do
-    subject.born_on = DateTime.now
-    expect(subject.age).instance_of? Date
+    subject.born_on = Date.new(2000, 1, 1)
+    expect(subject.age).to eq(17)
   end
 
 end

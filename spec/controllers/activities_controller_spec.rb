@@ -24,12 +24,14 @@ RSpec.describe ActivitiesController, type: :controller do
   # Activity. As you add validations to Activity, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    skip({title: "title"
+        description: "description"})
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
-  }
+    skip({title: "title"
+        description: "description"})
+      }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in

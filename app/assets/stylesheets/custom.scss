@@ -140,6 +140,15 @@ font-family: $heading;
   color: white;
 }
 
+.glyphicon-ban-circle {
+  color: red;
+}
+
+.glyphicon-plus {
+  color: blue;
+
+}
+
 /* navigation */
 
 #login-nav {
@@ -197,8 +206,8 @@ font-family: $heading;
 }
 
 .arrows {
-  width: 50px;
-  height: 100%;
+  width: 40px;
+  height: 80%;
   padding-right: 15px;
 }
 

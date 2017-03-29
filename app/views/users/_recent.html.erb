@@ -6,8 +6,8 @@
   <div class="col-xs-10">
     <%= challenge.activity.created_at.strftime("%b %d") %> - <%= challenge.activity.title %>
   </div>
-  <div class="recent-post">
-    <%= link_to "Read more!", challenge_path(challenge) %>
+  <div class="recent-post col-xs-2">
+    <%= link_to "Read more!", challenge_path(challenge), class: "link" %>
   </div>
 </div>
 <hr>

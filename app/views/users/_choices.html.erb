@@ -38,7 +38,7 @@
       <% end %>
     </div>
     <div class="choice-button">
-      <h4><%= link_to "Read Your Post", post_path(challenge.post), method: "get", class: "link" %>
+      <h4><%= link_to "Your Post", post_path(challenge.post), method: "get", class: "link" %>
         <%= link_to image_tag("/arrows.png", {:class=>"arrows", :alt => "post",}), post_path(challenge.post) %>
       </h4>
     </div>

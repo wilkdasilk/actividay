@@ -19,10 +19,12 @@ class PostsController < ApplicationController
     @challenge = Challenge.find_by_id(challenge_id)
     @challenge.post = Post.create(post_params)
     @challenge.status = :posted
-    if @challenge.save
-      format.html { redirect_to post_path(@challenge.post), notice: 'Post was successfully saved.' }
-    else
-      format.html { render :new }
+    respond_to do |format|
+      if @challenge.save
+        format.html { redirect_to @challenge.post, notice: 'Post was successfully saved.' }
+      else
+        format.html { render :new }
+      end
     end
   end
 

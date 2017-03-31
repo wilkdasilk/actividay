@@ -13,14 +13,12 @@ class ChallengesController < ApplicationController
         format.html { redirect_to root_path, notice: "You can't give up on a challenge you've posted to."}
       end
     elsif @challenge.unchosen?
-      @challenge.status = :chosen
-      @challenge.save
+      @challenge.chosen!
       respond_to do |format|
         format.html { redirect_to root_path, notice: "You've accepted a challenge! Go get 'em!"}
       end
     elsif @challenge.chosen?
-      @challenge.status= :unchosen
-      @challenge.save
+      @challenge.unchosen!
       respond_to do |format|
         format.html { redirect_to root_path, notice: "Maybe next time!"}
       end
@@ -29,8 +27,7 @@ class ChallengesController < ApplicationController
 
   # PATCH/PUT, updates a challenge to posted if a post has been created for it.
   def not_interested
-    @challenge.status = :not_interested
-    @challenge.save
+    @challenge.not_interested!
     respond_to do |format|
       format.html { redirect_to root_path, notice: "Ok, you won't see it again!!"}
     end

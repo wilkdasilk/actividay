@@ -6,8 +6,7 @@ Rails.application.routes.draw do
   get "/welcome", to: "splash#index", as: "splash"
 
   #posts routes
-  get "/posts/new", to: "posts#new", as: "new_post"
-  resources :posts, except: [:new]
+  resources :posts
 
   #challenges routes with an extra patch/put for posting.
   resources :challenges, except: [:new, :index, :edit] do

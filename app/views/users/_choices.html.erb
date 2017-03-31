@@ -7,7 +7,9 @@
 
 
   <% @user.challenges.where("created_at > ?", 1.day.ago).where.not(:status => :not_interested).order(activity_id: :desc).each do |challenge| %>
-  <%= link_to challenge_path(challenge, status: challenge.next_status), method: 'put', class: "challenge" do %>
+  <%= link_to_if challenge.status.in?(["unchosen", "chosen"]),
+                 challenge_path(challenge, status: challenge.next_status),
+                 method: 'put', class: "challenge" do %>
     <div class="card challenge-card <%= challenge.status %>">
       <div class="row challenge">
         <div class="challenge-words">
@@ -25,7 +27,7 @@
       <h4>Post About It <span class="glyphicon glyphicon-plus arrows" aria-hidden="true"></span></h4>
     <% end %>
   </div>
-  <% elsif challenge.posted? %>
+  <% elsif challenge.post %>
     <div class="choice-button">
       <%= link_to post_path(challenge.post), method: "delete", class: "link", data: { confirm: "Are you sure you want to delete that post?" } do %>
         <h4>Delete Post <span class="glyphicon glyphicon-ban-circle arrows" aria-hidden="true"></span></h4>

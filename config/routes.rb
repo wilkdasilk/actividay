@@ -22,8 +22,7 @@ Rails.application.routes.draw do
   get "/users/:id", to: "users#show", as: "user"
 
   #activites routes
-  get "/activities", to: "activities#index"
-  get "/activities/:id", to: "activities#show", as: "activity_show"
+  resources :activities, only: [:index, :show]
 
   #catch-all
   match "*a", to: 'users#profile', via: :all

@@ -7,7 +7,7 @@
 
 
   <% @user.challenges.where("created_at > ?", 1.day.ago).where.not(:status => :not_interested).order(activity_id: :desc).each do |challenge| %>
-  <%= link_to challenge_path(challenge, status: challenge.status), method: 'put', class: "challenge" do %>
+  <%= link_to challenge_path(challenge, status: challenge.next_status), method: 'put', class: "challenge" do %>
     <div class="card challenge-card <%= challenge.status %>">
       <div class="row challenge">
         <div class="challenge-words">
